@@ -1,0 +1,39 @@
+DEPACK:
+  cat:
+    artemisio:
+      a: 0.1942
+      b: 0.0097
+      c: 0.7767
+      d: 0.0194
+    berta:
+      w: 0.0194
+      x: 0.1942
+      y: 0.0097
+      z: 0.7767
+  cont:
+    conte:
+    - 10
+    - 33
+DIZ_ENCODE: !!python/object/apply:collections.defaultdict
+  args:
+  - !!python/name:builtins.dict ''
+  dictitems:
+    artemisio:
+      a: 1
+      c: 0
+      d: 2
+    berta:
+      w: 2
+      x: 1
+      z: 0
+FEAT_INFO:
+  FEATURE_CATEGORICHE:
+  - artemisio
+  - berta
+  FEATURE_CONTINUE:
+  - conte
+  KEYS:
+  - key
+  TARGET:
+  - zero
+FILEPATH: ..\data\proc\dataprova.csv
