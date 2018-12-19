@@ -19,7 +19,6 @@ from sklearn.preprocessing import LabelEncoder
 from xgboost import XGBClassifier
 
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
-sys.path.append(os.path.realpath('..'))
 
 
 def train_model(model_id):
