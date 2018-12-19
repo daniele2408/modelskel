@@ -1,8 +1,8 @@
-/*.csv
-/*.json
-/*.xlsx
+*.csv
+*.json
+*.xlsx
 */__pycache__
 config/dataset/*
 config/model/*
-data/
+data/*
 
