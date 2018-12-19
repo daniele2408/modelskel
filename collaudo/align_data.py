@@ -9,7 +9,6 @@ import yaml
 
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append("..")
-print(os.getcwd())
 from preproc.proc_data import apply_depack, apply_decode
 
 def check_type_diff(df1, df2, cols):

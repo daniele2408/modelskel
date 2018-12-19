@@ -15,7 +15,7 @@ def save_fetch_data(dataset, dataset_id, save=False):
     '''
 
     if save:
-        now = datetime.strptime(datetime.now(), format='%Y%m%d')
-        dataset.to_csv(os.path.join('..', 'data', 'coll', '{}_fetch_{}.csv'.format(dataset_id, now)), sep=';', index=False)
+        fetch_id = datetime.strptime(datetime.now(), format='%Y%m%d%M')
+        dataset.to_csv(os.path.join('..', 'data', 'coll', '{}_fetch_{}.csv'.format(dataset_id, fetch_id)), sep=';', index=False)
 
-    return dataset
+    return dataset, fetch_id
