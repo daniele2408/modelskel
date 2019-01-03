@@ -19,9 +19,13 @@ def report_data(dataset_id, supposed_pk, qmin=0.01, sample=None):
     cfg = yaml.load(open(os.path.join('..', 'config', 'dataset', 'etl_'+dataset_id+'.yaml'), 'r'))
 
     if sample is None:
-        df = pd.read_csv(cfg['FILEPATH'].replace('\\', '/'), sep=';')
+        df = pd.read_csv(cfg['FILEPATH'].replace('\\', '/'), sep=';',
+                        decimal=".",keep_default_na = False, na_values = [""]
+                            )
     else:
-        df = pd.read_csv(cfg['FILEPATH'].replace('\\', '/'), sep=';', nrows=sample)
+        df = pd.read_csv(cfg['FILEPATH'].replace('\\', '/'), sep=';',
+                        decimal=".",keep_default_na = False, na_values = [""]
+                            )
 
     # sintesi
     print(utils.check_col_types(df))

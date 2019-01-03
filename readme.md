@@ -21,7 +21,11 @@ I dati devono essere tutti nello stesso folder, divisi per provenienza e per lin
 In config mettiamo un cfg.yaml che tiene i dati generali, mentre in due cartelle dataset e model teniamo gli yaml dei singolo dataset e model, dove hanno il nome del dataset_id e del model_id, qua dentro mettiamo tutti i riferimenti per recuperare dataset/model e metadati
 
 ## HOW TO
-Hai appena pullato.
+Hai appena pullato. Setta il rootDir nel config/cfg.yaml
 
-* Definire in etl/collector i dataset da estrarre, oppure se prenderne già presenti, in ogni caso generare uno yaml in config/dataset
-* Lanciare preproc/report_data per avere un'idea del dataset
+* ETL + PREPROC
+    * Definire in etl/collector i dataset da estrarre, oppure se prenderne già presenti, in ogni caso generare uno yaml in config/dataset
+    * Lanciare preproc/report_data per avere un'idea del dataset
+    * Lanciare preproc/proc_data decidendo come lavorare i dati e SE lavorarli
+* TRAIN MODEL
+    * Settare i parametri di testing in model/set_model.py e lanciarlo (settare nuovo model_id)

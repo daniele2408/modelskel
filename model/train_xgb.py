@@ -11,10 +11,11 @@ import xgboost as xgb
 import yaml
 
 from helpers.utils.helpers_func_xgb import objective, apply_hyperopt, modelfit, grid_learn, get_n_est, graph_cv
+from helpers.utils.UtilsDataManip import check_col_types
 from sklearn.calibration import CalibratedClassifierCV
 from sklearn.externals import joblib
 from sklearn.metrics import roc_auc_score, roc_curve, log_loss
-from sklearn.model_selection import train_test_split, GridSearchCV
+from sklearn.model_selection import train_test_split, GridSearchCV, StratifiedKFold
 from sklearn.preprocessing import LabelEncoder
 from xgboost import XGBClassifier
 
@@ -39,6 +40,7 @@ def train_model(model_id):
 
     testsize = params['test_size']
     use_grid = params['use_grid']
+    use_stratkfold = params['use_stratkfold']
     iperparams = params['iperparams']
 
     use_hyperopt = params['use_hyperopt']
@@ -85,11 +87,16 @@ def train_model(model_id):
     print('Fitto il modello')
 
     alg = XGBClassifier(**iperparams)
-    bestmodel = modelfit(alg, train, iperparams['n_estimators'], predittori, target[0], useTrainCV=False)
+    if use_stratkfold:
+        print('Applico una cross-validation stratificata')
+        skf = StratifiedKFold(n_splits=5)
+        bestmodel = modelfit(alg, train, iperparams['n_estimators'], predittori, target[0], useTrainCV=True, foldObj=skf)        
+    else:
+        bestmodel = modelfit(alg, train, iperparams['n_estimators'], predittori, target[0], useTrainCV=False)
 
     print('Calibro il modello')
-    X_test['score'] = bestmodel.predict_proba(X_test)[:,1]
-    X_test[target[0]] = y_test
+    X_test['score'] = bestmodel.predict_proba(X_test)[:,1].copy()
+    X_test[target[0]] = y_test.copy()
 
     auc = roc_auc_score(y_test, X_test['score'])
     logloss = log_loss(y_test, X_test['score'])
@@ -104,7 +111,9 @@ def save_results(model_id, model, data_preds, diz_results, target):
     yaml.dump(cfg, open(os.path.join('..', 'config', 'model', 'parametri_'+model_id+'.yaml'), 'w'))
 
     cfggen = yaml.load(open(os.path.join('..', 'config', 'cfg.yaml'), 'r'))
+    print(cfggen)
     rootDir = cfggen['FILEPATH']['rootDir']
+    print(rootDir)
     
     roc_fig = gf.roc_curve_annotated(
         data_preds,

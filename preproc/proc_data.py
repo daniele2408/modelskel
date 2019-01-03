@@ -16,21 +16,13 @@ def encode_cat(df, depack, qmin=0.01, verbose=True):
 
     diz_encode = defaultdict(dict)
 
-    eccezioni = ['PROVINCIA']
+    eccezioni = ['PROVINCIA']  # non vogliamo un warning per questi predittori
     for c in cats:
         print(c)
-        print({i:(val[0],val[1]) for i,val in enumerate(cats[c].items())})
-        diz_encode[c] = {val[0]:i for i,val in enumerate(cats[c].items()) if val[1] >= qmin}
+        print({i+1:(val[0],val[1]) for i,val in enumerate(cats[c].items())})
+        diz_encode[c] = {val[0]:i+1 for i,val in enumerate(cats[c].items()) if val[1] >= qmin}
 
-        # vc = df[c].value_counts().sort_values(ascending=False)
-        # vc_perc = vc / vc.sum()
-
-        # diz_vc = [val for val,num,perc in zip(vc.index, vc, vc_perc) if perc >= qmin]
-
-        # label_encode = {val:i for i,val in enumerate(diz_vc)}
-        # escluso_tot = vc_perc[vc_perc<qmin].sum()
         escluso_tot = np.sum([val for val in cats[c].values() if val < qmin])
-
         if escluso_tot > 0.1 and c not in eccezioni:
             raise UserWarning("La somma dei valori sotto {} è {}".format(qmin, round(escluso_tot,2)))
 
@@ -39,16 +31,16 @@ def encode_cat(df, depack, qmin=0.01, verbose=True):
         if verbose and len(esclusi)>0:
             print('''
 Per la colonna {} abbiamo escluso il {}% del dataset
-perché composto da valori che singolarmente
-non toccano un valore di {}%:\n{}
+perché composto da valori che singolarmente non toccano un valore di {}%:\n{}
             '''.format(c, round(escluso_tot,2)*100, qmin*100, '\n'.join([':'.join([str(b),str(round(a,2))]) for a,b in zip(escluso_val, esclusi)])))
 
+        diz_encode[c]['others_{}'.format(c)] = 0
 
     return diz_encode
 
 def apply_encode(df, diz_encode):    
     for c in diz_encode.keys():
-        df[c] = df[c].apply(lambda x: diz_encode[c].get(x, 'others_{}'.format(c)))
+        df[c] = df[c].apply(lambda x: diz_encode[c].get(x, 0))  # se non lo trova vuol dire che è stato escluso, quindi è 0 come specificato
 
 def apply_decode(df, diz_encode):
     diz_decode = dict()
@@ -56,7 +48,7 @@ def apply_decode(df, diz_encode):
         diz_decode[k] = {v:k for k,v in diz_encode[k].items()}
 
     for c in diz_decode.keys():
-        df[c] = df[c].apply(lambda x: diz_decode[c].get(x, 'others_{}'.format(c)))
+        df[c] = df[c].apply(lambda x: diz_decode[c].get(x, 0))
 
 def apply_depack(df, cat, cont):
     depack = {'cont':{}, 'cat':{}}
@@ -96,7 +88,8 @@ def start_proc(dataset, keep=None, drop=None, qmin=0.01):
     return dataset
 
 
-def end_proc(dataset, qmin):
+def end_proc(dataset, qmin, nafiller='-999'):
+
     ### IDENTIFICAZIONE LABEL
     preds_cont = ['Imm_Compr_min', 'REDDITO_ME', 'CL_Redd', 'RISK_SB', 'anzianita_cliente', 'eta_anagrafica']
     preds_cat = ['PROVINCIA', 'Imm_Fascia', 'MTYPE', 'ATTIVITA_NEW']
@@ -114,6 +107,13 @@ def end_proc(dataset, qmin):
 
     ### CAST
     cast_col(dataset, preds_cont, preds_cat)
+
+    ### REPLACENA per le categoriche, nan è troppo strano
+    for c in preds_cat:
+        print(c)
+        print(dataset[c].head())
+        assert (dataset[c]==nafiller).any() == False, "Il nafiller è già presente come valore nel dataset, sostituirlo"
+        dataset[c].fillna(nafiller, inplace=True)
 
     ### DEPACK
     depack = apply_depack(dataset, preds_cat, preds_cont)
@@ -142,9 +142,17 @@ def load_perimetro(dataset_id, sample=None):
     cfg = yaml.load(open(os.path.join('..', 'config', 'dataset', 'etl_'+dataset_id+'.yaml'), 'r'))
 
     if sample:
-        return pd.read_csv(cfg['FILEPATH'].replace('\\', '/'), sep=';', nrows=sample)
+        return pd.read_csv(
+            cfg['FILEPATH'].replace('\\', '/'), sep=';',
+            nrows=sample,
+            decimal=".",keep_default_na = False, na_values = [""]
+            )
     else:
-        return pd.read_csv(cfg['FILEPATH'].replace('\\', '/'), sep=';')
+        return pd.read_csv(
+            cfg['FILEPATH'].replace('\\', '/'), sep=';',
+            nrows=sample,
+            decimal=".",keep_default_na = False, na_values = [""]
+            )
 
 
 def main_proc(dataset_id, skip=False, sample=None):

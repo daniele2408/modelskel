@@ -1,4 +1,4 @@
 FILEPATH:
-  - rootDir: 'C:/Users/$USER/gitfolder/modelskel'
-  - dataPeriDir: 'data/perimetro'
-  - dataProcDir: 'data/proc'
+  rootDir: 'C:/Users/LEI00020/Documents/Progetti/newreco'
+  dataPeriDir: 'data/perimetro'
+  dataProcDir: 'data/proc'
