@@ -34,6 +34,6 @@ def save_perimetro(dataset_id, save=True, dataset=None, path=None):
 
 if __name__ == '__main__':
     
-    DATAPATH = r'\\direzione.gr-u.it\data\Innovation\PRJ\RecommendationSystem\Recommender_Global\GS\data\dati_recosys_new.csv'
-
+    DATAPATH = ''
+    
     save_perimetro('possessi_reco', save=False, path=DATAPATH)
