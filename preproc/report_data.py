@@ -5,7 +5,7 @@ import yaml
 
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
-def report_data(dataset_id, supposed_pk, qmin=0.01):
+def report_data(dataset_id, supposed_pk, qmin=0.01, sample=None):
     '''
     Funzione che printa info su un dataset estratto
 
@@ -18,7 +18,10 @@ def report_data(dataset_id, supposed_pk, qmin=0.01):
 
     cfg = yaml.load(open(os.path.join('..', 'config', 'dataset', 'etl_'+dataset_id+'.yaml'), 'r'))
 
-    df = pd.read_csv(cfg['FILEPATH'], sep=',')
+    if sample is None:
+        df = pd.read_csv(cfg['FILEPATH'].replace('\\', '/'), sep=';')
+    else:
+        df = pd.read_csv(cfg['FILEPATH'].replace('\\', '/'), sep=';', nrows=sample)
 
     # sintesi
     print(utils.check_col_types(df))
@@ -36,4 +39,4 @@ def report_data(dataset_id, supposed_pk, qmin=0.01):
     return
 
 if __name__ == '__main__':
-    report_data('crmTrieste', ['CONT_ID', 'COD_FISCALE_P_IVA'])
+    report_data('possessi_reco', ['CODICE_FISCALE'], sample=1000000)

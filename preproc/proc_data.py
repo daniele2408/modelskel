@@ -16,7 +16,9 @@ def encode_cat(df, depack, qmin=0.01, verbose=True):
 
     diz_encode = defaultdict(dict)
 
+    eccezioni = ['PROVINCIA']
     for c in cats:
+        print(c)
         print({i:(val[0],val[1]) for i,val in enumerate(cats[c].items())})
         diz_encode[c] = {val[0]:i for i,val in enumerate(cats[c].items()) if val[1] >= qmin}
 
@@ -29,7 +31,7 @@ def encode_cat(df, depack, qmin=0.01, verbose=True):
         # escluso_tot = vc_perc[vc_perc<qmin].sum()
         escluso_tot = np.sum([val for val in cats[c].values() if val < qmin])
 
-        if escluso_tot > 0.1:
+        if escluso_tot > 0.1 and c not in eccezioni:
             raise UserWarning("La somma dei valori sotto {} è {}".format(qmin, round(escluso_tot,2)))
 
         esclusi = [k for k,val in cats[c].items() if val < qmin]
@@ -39,7 +41,7 @@ def encode_cat(df, depack, qmin=0.01, verbose=True):
 Per la colonna {} abbiamo escluso il {}% del dataset
 perché composto da valori che singolarmente
 non toccano un valore di {}%:\n{}
-            '''.format(c, round(escluso_tot,2)*100, qmin*100, '\n'.join([':'.join([b,str(round(a,2))]) for a,b in zip(escluso_val, esclusi)])))
+            '''.format(c, round(escluso_tot,2)*100, qmin*100, '\n'.join([':'.join([str(b),str(round(a,2))]) for a,b in zip(escluso_val, esclusi)])))
 
 
     return diz_encode
@@ -96,10 +98,10 @@ def start_proc(dataset, keep=None, drop=None, qmin=0.01):
 
 def end_proc(dataset, qmin):
     ### IDENTIFICAZIONE LABEL
-    preds_cont = ['ETA']
-    preds_cat = ['PROVINCIA']
-    chiavi = ['CONT_ID', 'COD_FISCALE_P_IVA']
-    target = ['SESSO']
+    preds_cont = ['Imm_Compr_min', 'REDDITO_ME', 'CL_Redd', 'RISK_SB', 'anzianita_cliente', 'eta_anagrafica']
+    preds_cat = ['PROVINCIA', 'Imm_Fascia', 'MTYPE', 'ATTIVITA_NEW']
+    chiavi = ['CODICE_FISCALE']
+    target = ['POSSESSO_VITA_INVESTIMENTO_x']
 
     feature_info = {
         'FEATURE_CONTINUE':preds_cont,
@@ -136,19 +138,24 @@ def save_results(dataset_id, dataset, feats, depack, diz_encode):
 
     yaml.dump(diz_info, open(os.path.join('..', 'config', 'dataset', dataset_id+'.yaml'), 'w'), default_flow_style=False, allow_unicode=True)
 
-def load_perimetro(dataset_id):
+def load_perimetro(dataset_id, sample=None):
     cfg = yaml.load(open(os.path.join('..', 'config', 'dataset', 'etl_'+dataset_id+'.yaml'), 'r'))
 
-    return pd.read_csv(cfg['FILEPATH'], sep=',')
+    if sample:
+        return pd.read_csv(cfg['FILEPATH'].replace('\\', '/'), sep=';', nrows=sample)
+    else:
+        return pd.read_csv(cfg['FILEPATH'].replace('\\', '/'), sep=';')
 
 
-def main_proc(dataset_id):
+def main_proc(dataset_id, skip=False, sample=None):
 
     ### CARICO
-    dataset = load_perimetro(dataset_id)
+    dataset = load_perimetro(dataset_id, sample)
 
-    ### PROCCO
-    dataset = start_proc(dataset)
+    if not skip:
+        ### PROCCO
+        dataset = start_proc(dataset)
+    
     data, feature_info, depack, diz_encode = end_proc(dataset, qmin=0.01)
 
     ### SCARICO
@@ -167,5 +174,5 @@ if __name__ == '__main__':
             })
         main_proc('dataprova')
 
-    main_proc('crmTrieste')
+    main_proc('possessi_reco', skip=True, sample=100000)
 

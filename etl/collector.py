@@ -21,11 +21,19 @@ def collect_sources(filename):
 
     return dataset
 
-def save_perimetro(dataset, dataset_id):
-    datasetPath = os.path.join('..', 'data', 'perimetro', 'etl_'+dataset_id+'.csv')
-    dataset.to_csv(datasetPath, sep=';', index=False)
+def save_perimetro(dataset_id, save=True, dataset=None, path=None):
+    assert save or path, 'Se non si salva fornire un path'
+    assert bool(save) == bool(dataset), 'Se si vuole salvare fornire un dataset'
+    if save:
+        datasetPath = os.path.join('..', 'data', 'perimetro', 'etl_'+dataset_id+'.csv')
+        dataset.to_csv(datasetPath, sep=';', index=False)
+    else:
+        datasetPath = path
     yaml.dump({'FILEPATH':datasetPath}, open(os.path.join('..', 'config', 'dataset', 'etl_'+dataset_id+'.yaml'), 'w'))
 
 
 if __name__ == '__main__':
-    pass
+    
+    DATAPATH = r'\\direzione.gr-u.it\data\Innovation\PRJ\RecommendationSystem\Recommender_Global\GS\data\dati_recosys_new.csv'
+
+    save_perimetro('possessi_reco', save=False, path=DATAPATH)
