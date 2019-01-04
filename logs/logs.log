@@ -1,0 +1,460 @@
+
+###### 2019-01-04 16:24:07,736 [INFO] luigi-interface -> Loaded [] ######
+
+
+###### 2019-01-04 16:24:08,116 [INFO] luigi-interface -> Informed scheduler that task   TRAINMODEL_lagerta_lothbrok_bbbaad3a2d   has status   PENDING ######
+
+
+###### 2019-01-04 16:24:08,119 [INFO] luigi-interface -> Informed scheduler that task   PREPROC_lagerta___CODICE_FISCALE_100000_766691ec50   has status   PENDING ######
+
+
+###### 2019-01-04 16:24:08,121 [INFO] luigi-interface -> Informed scheduler that task   ETL_lagerta___direzione_gr_u_4b6f127bb3   has status   PENDING ######
+
+
+###### 2019-01-04 16:24:08,122 [INFO] luigi-interface -> Done scheduling tasks ######
+
+
+###### 2019-01-04 16:24:08,122 [INFO] luigi-interface -> Running Worker with 1 processes ######
+
+
+###### 2019-01-04 16:24:08,126 [INFO] luigi-interface -> [pid 10036] Worker Worker(salt=662934037, workers=1, host=IBOLAC5XSJM2000, username=LEI00020, pid=10036) running   ETL(dataset_id=lagerta, path_dataset=\\direzione.gr-u.it\data\Innovation\PRJ\RecommendationSystem\Recommender_Global\GS\data\dati_recosys_new.csv) ######
+
+
+###### 2019-01-04 16:24:08,128 [INFO] etl.collector -> Salvo il risultato dell'ETL in \\direzione.gr-u.it\data\Innovation\PRJ\RecommendationSystem\Recommender_Global\GS\data\dati_recosys_new.csv, con dataset_id lagerta ######
+
+
+###### 2019-01-04 16:24:08,131 [INFO] luigi-interface -> [pid 10036] Worker Worker(salt=662934037, workers=1, host=IBOLAC5XSJM2000, username=LEI00020, pid=10036) done      ETL(dataset_id=lagerta, path_dataset=\\direzione.gr-u.it\data\Innovation\PRJ\RecommendationSystem\Recommender_Global\GS\data\dati_recosys_new.csv) ######
+
+
+###### 2019-01-04 16:24:08,134 [INFO] luigi-interface -> Informed scheduler that task   ETL_lagerta___direzione_gr_u_4b6f127bb3   has status   DONE ######
+
+
+###### 2019-01-04 16:24:08,136 [INFO] luigi-interface -> [pid 10036] Worker Worker(salt=662934037, workers=1, host=IBOLAC5XSJM2000, username=LEI00020, pid=10036) running   PREPROC(dataset_id=lagerta, ls_keys=["CODICE_FISCALE"], sample=100000) ######
+
+
+###### 2019-01-04 16:24:08,141 [INFO] preproc.report_data -> Stampo un report per il dataset_id lagerta, file locato in //direzione.gr-u.it/data/Innovation/PRJ/RecommendationSystem/Recommender_Global/GS/data/dati_recosys_new.csv ######
+
+
+###### 2019-01-04 16:24:14,949 [INFO] preproc.report_data ->                          colonna     tipo  valori_unici  nm_missing  \
+73                    Imm_Fascia   object             5       14719   
+72                 Imm_Compr_min  float64           195       14719   
+64                    REDDITO_ME  float64         55707        4272   
+69                  AN_SC_000030  float64         34060        3657   
+70                  AN_SC_000070  float64         37761        3273   
+71               CN_DF_DS_000020  float64         25502        2719   
+74                    zone_risk1  float64            56        2646   
+65                       CL_Redd  float64             9        2644   
+75                    zone_risk2  float64            70        2644   
+68                  AN_SC_000010  float64         49751        2644   
+67               AN_CN_AT_000140  float64         26180        2644   
+66                     AN_000280  float64         10568        2644   
+76                        MGROUP   object            13        1510   
+77                         MTYPE  float64            49         605   
+30                       RISK_SB  float64           100         420   
+29                       REGIONE   object            21         420   
+31                GEODELPHI_PLUS  float64            90         234   
+21               data_cliente_da   object          9489          36   
+62                      sezrid09  float64         60075           1   
+44              POSSESSO_ALTRO_y    int64             2           0   
+45                    dataEstr_y   object             1           0   
+46                         SUM_x  float64            10           0   
+47                         SUM_y  float64             9           0   
+48                 COMPRATO_AUTO    int64             2           0   
+49            COMPRATO_INFORTUNI    int64             2           0   
+50             COMPRATO_MALATTIA    int64             2           0   
+51    COMPRATO_ABITAZIONE_INCFUR    int64             2           0   
+0                     ID_CLIENTE    int64        100000           0   
+59               COMPRATO_NOAUTO    int64             2           0   
+52    COMPRATO_VITA_INVESTIMENTO    int64             2           0   
+53       COMPRATO_VITA_RISPARMIO    int64             2           0   
+54      COMPRATO_VITA_PROTEZIONE    int64             2           0   
+55      COMPRATO_VITA_PREVIDENZA    int64             2           0   
+56       COMPRATO_CONTO_CORRENTE    int64             2           0   
+57                COMPRATO_ALTRO    int64             2           0   
+58                      COMPRATO    int64             2           0   
+42    POSSESSO_VITA_PREVIDENZA_y    int64             2           0   
+60                 cliente_nuovo    int64             1           0   
+61                 GEOCODER_ADDR   object         91845           0   
+63                       address   object         91845           0   
+43     POSSESSO_CONTO_CORRENTE_y    int64             2           0   
+39  POSSESSO_VITA_INVESTIMENTO_y    int64             2           0   
+41    POSSESSO_VITA_PROTEZIONE_y    int64             2           0   
+18    POSSESSO_VITA_PREVIDENZA_x    int64             2           0   
+16     POSSESSO_VITA_RISPARMIO_x    int64             2           0   
+15  POSSESSO_VITA_INVESTIMENTO_x    int64             2           0   
+14  POSSESSO_ABITAZIONE_INCFUR_x    int64             2           0   
+13           POSSESSO_MALATTIA_x    int64             2           0   
+12          POSSESSO_INFORTUNI_x    int64             2           0   
+11               POSSESSO_AUTO_x    int64             2           0   
+10                 TIPO_CONSENSO   object             8           0   
+9                      PROVINCIA   object           111           0   
+8                         COMUNE   object          6029           0   
+7                            VIA   object         83342           0   
+6              FLAG_CAPOFAMIGLIA    int64             2           0   
+5                          SESSO    int64             2           0   
+4              TIPO_CLIENTE_DESC   object           114           0   
+3              CLIENTE_INTEGRATO    int64             2           0   
+2               FLAG_CLIENTE_TOP    int64             2           0   
+17    POSSESSO_VITA_PROTEZIONE_x    int64             2           0   
+19     POSSESSO_CONTO_CORRENTE_x    int64             2           0   
+40     POSSESSO_VITA_RISPARMIO_y    int64             2           0   
+20              POSSESSO_ALTRO_x    int64             2           0   
+1                 CODICE_FISCALE   object        100000           0   
+38  POSSESSO_ABITAZIONE_INCFUR_y    int64             2           0   
+37           POSSESSO_MALATTIA_y    int64             2           0   
+36          POSSESSO_INFORTUNI_y    int64             2           0   
+35               POSSESSO_AUTO_y    int64             2           0   
+34                  ATTIVITA_NEW   object            16           0   
+33                   NAZIONALITA   object           137           0   
+32                   FLAGSTR_CRM  float64             2           0   
+28                           CAP    int64          4223           0   
+27             anzianita_cliente  float64          9489           0   
+26                eta_anagrafica  float64         23610           0   
+25                     flagEmail  float64             2           0   
+24                  flagTelefono  float64             2           0   
+23                    dataEstr_x   object             1           0   
+22              data_nascita_cli   object         23610           0   
+78                     microzona    int64         60530           0   
+
+    nm_missing_perc  
+73          0.14719  
+72          0.14719  
+64          0.04272  
+69          0.03657  
+70          0.03273  
+71          0.02719  
+74          0.02646  
+65          0.02644  
+75          0.02644  
+68          0.02644  
+67          0.02644  
+66          0.02644  
+76          0.01510  
+77          0.00605  
+30          0.00420  
+29          0.00420  
+31          0.00234  
+21          0.00036  
+62          0.00001  
+44          0.00000  
+45          0.00000  
+46          0.00000  
+47          0.00000  
+48          0.00000  
+49          0.00000  
+50          0.00000  
+51          0.00000  
+0           0.00000  
+59          0.00000  
+52          0.00000  
+53          0.00000  
+54          0.00000  
+55          0.00000  
+56          0.00000  
+57          0.00000  
+58          0.00000  
+42          0.00000  
+60          0.00000  
+61          0.00000  
+63          0.00000  
+43          0.00000  
+39          0.00000  
+41          0.00000  
+18          0.00000  
+16          0.00000  
+15          0.00000  
+14          0.00000  
+13          0.00000  
+12          0.00000  
+11          0.00000  
+10          0.00000  
+9           0.00000  
+8           0.00000  
+7           0.00000  
+6           0.00000  
+5           0.00000  
+4           0.00000  
+3           0.00000  
+2           0.00000  
+17          0.00000  
+19          0.00000  
+40          0.00000  
+20          0.00000  
+1           0.00000  
+38          0.00000  
+37          0.00000  
+36          0.00000  
+35          0.00000  
+34          0.00000  
+33          0.00000  
+32          0.00000  
+28          0.00000  
+27          0.00000  
+26          0.00000  
+25          0.00000  
+24          0.00000  
+23          0.00000  
+22          0.00000  
+78          0.00000   ######
+
+
+###### 2019-01-04 16:24:15,106 [INFO] preproc.report_data -> True ######
+
+
+###### 2019-01-04 16:24:15,108 [INFO] preproc.proc_data -> Carico il dataset_id lagerta ######
+
+
+###### 2019-01-04 16:24:16,471 [INFO] preproc.proc_data -> Lavoro il dataset ######
+
+
+###### 2019-01-04 16:24:16,730 [INFO] preproc.proc_data -> Applico il depack ed encodo le categoriche ######
+
+
+###### 2019-01-04 16:24:16,805 [INFO] preproc.proc_data -> PROVINCIA ######
+
+
+###### 2019-01-04 16:24:16,807 [INFO] preproc.proc_data -> {1: ('RM', 0.0569), 2: ('MI', 0.0436), 3: ('TO', 0.0434), 4: ('FI', 0.043), 5: ('BS', 0.0308), 6: ('PG', 0.0249), 7: ('BO', 0.024), 8: ('VI', 0.0224), 9: ('PD', 0.0196), 10: ('NA', 0.0195), 11: ('BG', 0.0191), 12: ('MO', 0.0186), 13: ('RE', 0.0185), 14: ('GE', 0.0168), 15: ('BA', 0.0159), 16: ('PA', 0.0157), 17: ('LU', 0.0156), 18: ('PI', 0.0155), 19: ('VA', 0.0144), 20: ('CN', 0.0138), 21: ('RA', 0.0135), 22: ('VR', 0.0131), 23: ('AL', 0.013), 24: ('PU', 0.0129), 25: ('AN', 0.0129), 26: ('TV', 0.0127), 27: ('MB', 0.012), 28: ('FC', 0.0112), 29: ('LI', 0.0111), 30: ('VE', 0.011), 31: ('MN', 0.0108), 32: ('FE', 0.0104), 33: ('AR', 0.0104), 34: ('SI', 0.0103), 35: ('GR', 0.0098), 36: ('NO', 0.0095), 37: ('PR', 0.0094), 38: ('PT', 0.0088), 39: ('PV', 0.0087), 40: ('SA', 0.0085), 41: ('RN', 0.0082), 42: ('PO', 0.0082), 43: ('CE', 0.0081), 44: ('CR', 0.008), 45: ('ME', 0.0075), 46: ('SV', 0.0074), 47: ('CT', 0.0074), 48: ('CO', 0.0072), 49: ('TA', 0.007), 50: ('UD', 0.0066), 51: ('MC', 0.0065), 52: ('FR', 0.0064), 53: ('CS', 0.0063), 54: ('VT', 0.0063), 55: ('PN', 0.0062), 56: ('RG', 0.0056), 57: ('MS', 0.0055), 58: ('PC', 0.0055), 59: ('CA', 0.0054), 60: ('LT', 0.0054), 61: ('AT', 0.0052), 62: ('SP', 0.0052), 63: ('BR', 0.0051), 64: ('TR', 0.005), 65: ('LO', 0.005), 66: ('BI', 0.005), 67: ('LE', 0.0049), 68: ('TP', 0.0047), 69: ('RO', 0.0046), 70: ('FG', 0.0045), 71: ('VC', 0.0044), 72: ('CH', 0.0043), 73: ('SR', 0.0043), 74: ('PZ', 0.0041), 75: ('AQ', 0.0041), 76: ('LC', 0.004), 77: ('PE', 0.0039), 78: ('TS', 0.0037), 79: ('CZ', 0.0035), 80: ('FM', 0.0035), 81: ('RC', 0.0034), 82: ('SS', 0.0033), 83: ('AV', 0.0032), 84: ('VB', 0.0032), 85: ('BL', 0.003), 86: ('TN', 0.003), 87: ('AP', 0.003), 88: ('BT', 0.0029), 89: ('BN', 0.0029), 90: ('CB', 0.0028), 91: ('AG', 0.0028), 92: ('BZ', 0.0027), 93: ('IM', 0.0027), 94: ('TE', 0.0023), 95: ('AO', 0.0022), 96: ('OT', 0.0022), 97: ('RI', 0.0022), 98: ('GO', 0.0022), 99: ('MT', 0.002), 100: ('OR', 0.0018), 101: ('CI', 0.0017), 102: ('SO', 0.0016), 103: ('NU', 0.0015), 104: ('CL', 0.0014), 105: ('IS', 0.0013), 106: ('VV', 0.0008), 107: ('VS', 0.0008), 108: ('EN', 0.0008), 109: ('KR', 0.0007), 110: ('OG', 0.0003), 111: ('PS', 0.0001)} ######
+
+
+###### 2019-01-04 16:24:16,809 [INFO] preproc.proc_data -> 
+Per la colonna PROVINCIA abbiamo escluso il 34.0% del dataset
+perché composto da valori che singolarmente non toccano un valore di 1.0%:
+GR:0.01
+NO:0.01
+PR:0.01
+PT:0.01
+PV:0.01
+SA:0.01
+RN:0.01
+PO:0.01
+CE:0.01
+CR:0.01
+ME:0.01
+SV:0.01
+CT:0.01
+CO:0.01
+TA:0.01
+UD:0.01
+MC:0.01
+FR:0.01
+CS:0.01
+VT:0.01
+PN:0.01
+RG:0.01
+MS:0.01
+PC:0.01
+CA:0.01
+LT:0.01
+AT:0.01
+SP:0.01
+BR:0.01
+TR:0.01
+LO:0.01
+BI:0.01
+LE:0.0
+TP:0.0
+RO:0.0
+FG:0.0
+VC:0.0
+CH:0.0
+SR:0.0
+PZ:0.0
+AQ:0.0
+LC:0.0
+PE:0.0
+TS:0.0
+CZ:0.0
+FM:0.0
+RC:0.0
+SS:0.0
+AV:0.0
+VB:0.0
+BL:0.0
+TN:0.0
+AP:0.0
+BT:0.0
+BN:0.0
+CB:0.0
+AG:0.0
+BZ:0.0
+IM:0.0
+TE:0.0
+AO:0.0
+OT:0.0
+RI:0.0
+GO:0.0
+MT:0.0
+OR:0.0
+CI:0.0
+SO:0.0
+NU:0.0
+CL:0.0
+IS:0.0
+VV:0.0
+VS:0.0
+EN:0.0
+KR:0.0
+OG:0.0
+PS:0.0
+             ######
+
+
+###### 2019-01-04 16:24:16,819 [INFO] preproc.proc_data -> Imm_Fascia ######
+
+
+###### 2019-01-04 16:24:16,820 [INFO] preproc.proc_data -> {1: ('Centrale', 0.3116), 2: ('Periferica', 0.2707), 3: ('Semicentrale', 0.1553), 4: ('-999', 0.1472), 5: ('Suburbana', 0.1152)} ######
+
+
+###### 2019-01-04 16:24:16,821 [INFO] preproc.proc_data -> MTYPE ######
+
+
+###### 2019-01-04 16:24:16,822 [INFO] preproc.proc_data -> {1: ('29.0', 0.075), 2: ('36.0', 0.0632), 3: ('33.0', 0.0614), 4: ('28.0', 0.0567), 5: ('32.0', 0.0504), 6: ('37.0', 0.0466), 7: ('34.0', 0.0361), 8: ('4.0', 0.0318), 9: ('10.0', 0.0291), 10: ('46.0', 0.0285), 11: ('20.0', 0.0271), 12: ('31.0', 0.0262), 13: ('39.0', 0.0252), 14: ('18.0', 0.0239), 15: ('44.0', 0.0238), 16: ('30.0', 0.0227), 17: ('41.0', 0.0209), 18: ('24.0', 0.0202), 19: ('25.0', 0.0188), 20: ('14.0', 0.0181), 21: ('38.0', 0.018), 22: ('11.0', 0.0151), 23: ('3.0', 0.0151), 24: ('7.0', 0.0147), 25: ('12.0', 0.0144), 26: ('42.0', 0.0137), 27: ('19.0', 0.0135), 28: ('16.0', 0.013), 29: ('17.0', 0.0124), 30: ('15.0', 0.012), 31: ('5.0', 0.0119), 32: ('21.0', 0.0118), 33: ('9.0', 0.0114), 34: ('8.0', 0.0108), 35: ('2.0', 0.0104), 36: ('45.0', 0.0093), 37: ('99.0', 0.0091), 38: ('35.0', 0.0085), 39: ('27.0', 0.0079), 40: ('26.0', 0.0076), 41: ('43.0', 0.0069), 42: ('40.0', 0.0066), 43: ('47.0', 0.0063), 44: ('1.0', 0.0061), 45: ('-999', 0.006), 46: ('6.0', 0.006), 47: ('13.0', 0.0058), 48: ('22.0', 0.0056), 49: ('23.0', 0.0047)} ######
+
+
+###### 2019-01-04 16:24:16,824 [INFO] preproc.proc_data -> 
+Per la colonna MTYPE abbiamo escluso il 10.0% del dataset
+perché composto da valori che singolarmente non toccano un valore di 1.0%:
+45.0:0.01
+99.0:0.01
+35.0:0.01
+27.0:0.01
+26.0:0.01
+43.0:0.01
+40.0:0.01
+47.0:0.01
+1.0:0.01
+-999:0.01
+6.0:0.01
+13.0:0.01
+22.0:0.01
+23.0:0.0
+             ######
+
+
+###### 2019-01-04 16:24:16,826 [INFO] preproc.proc_data -> ATTIVITA_NEW ######
+
+
+###### 2019-01-04 16:24:16,826 [INFO] preproc.proc_data -> {1: ('ALTRO', 0.3182), 2: ('IMPIEGATO', 0.2513), 3: ('PENSIONATO', 0.1171), 4: ('OPERAIO', 0.0968), 5: ('CASALINGA', 0.0421), 6: ('PROFESSIONISTA', 0.0414), 7: ('ARTIGIANO', 0.0324), 8: ('COMMERCIANTE', 0.0267), 9: ('PUBBLICO DIPENDENTE', 0.0263), 10: ('STUDENTE', 0.0148), 11: ('AGRICOLTORE', 0.0099), 12: ('IMPRENDITORE', 0.0081), 13: ('DIRIGENTE', 0.0075), 14: ('DISOCCUPATO', 0.0068), 15: ('ARTISTA-SPORTIVO-ASSOCIAZIONE', 0.0005), 16: ('COOPERATIVA', 0.0002)} ######
+
+
+###### 2019-01-04 16:24:16,829 [INFO] preproc.proc_data -> 
+Per la colonna ATTIVITA_NEW abbiamo escluso il 3.0% del dataset
+perché composto da valori che singolarmente non toccano un valore di 1.0%:
+AGRICOLTORE:0.01
+IMPRENDITORE:0.01
+DIRIGENTE:0.01
+DISOCCUPATO:0.01
+ARTISTA-SPORTIVO-ASSOCIAZIONE:0.0
+COOPERATIVA:0.0
+             ######
+
+
+###### 2019-01-04 16:24:17,004 [INFO] preproc.proc_data -> Salvo i risultati in .\data\proc\lagerta.csv ######
+
+
+###### 2019-01-04 16:24:19,106 [INFO] luigi-interface -> [pid 10036] Worker Worker(salt=662934037, workers=1, host=IBOLAC5XSJM2000, username=LEI00020, pid=10036) done      PREPROC(dataset_id=lagerta, ls_keys=["CODICE_FISCALE"], sample=100000) ######
+
+
+###### 2019-01-04 16:24:19,109 [INFO] luigi-interface -> Informed scheduler that task   PREPROC_lagerta___CODICE_FISCALE_100000_766691ec50   has status   DONE ######
+
+
+###### 2019-01-04 16:24:19,111 [INFO] luigi-interface -> [pid 10036] Worker Worker(salt=662934037, workers=1, host=IBOLAC5XSJM2000, username=LEI00020, pid=10036) running   TRAINMODEL(dataset_id=lagerta, model_id=lothbrok) ######
+
+
+###### 2019-01-04 16:24:19,149 [INFO] model.train_xgb -> Carico i parametri ######
+
+
+###### 2019-01-04 16:24:19,255 [INFO] model.train_xgb -> Carico il dataset ######
+
+
+###### 2019-01-04 16:24:19,713 [INFO] model.train_xgb -> Distribuzione variabile target ######
+
+
+###### 2019-01-04 16:24:19,717 [INFO] model.train_xgb -> 0    97841
+1     2159
+Name: POSSESSO_VITA_INVESTIMENTO_y, dtype: int64 ######
+
+
+###### 2019-01-04 16:24:19,748 [INFO] model.train_xgb -> PROVINCIA               0
+Imm_Fascia              0
+MTYPE                   0
+ATTIVITA_NEW            0
+REDDITO_ME           4272
+AN_SC_000070         3273
+CN_DF_DS_000020      2719
+zone_risk1           2646
+CL_Redd              2644
+zone_risk2           2644
+AN_SC_000010         2644
+AN_CN_AT_000140      2644
+AN_000280            2644
+RISK_SB               420
+GEODELPHI_PLUS        234
+anzianita_cliente       0
+flagEmail               0
+flagTelefono            0
+eta_anagrafica          0
+dtype: int64 ######
+
+
+###### 2019-01-04 16:24:20,143 [INFO] model.train_xgb -> Fitto il modello ######
+
+
+###### 2019-01-04 16:24:20,401 [INFO] model.train_xgb -> Calibro il modello ######
+
+
+###### 2019-01-04 16:24:20,484 [WARNING] py.warnings -> C:\Users\LEI00020\Documents\Progetti\newreco\model\train_xgb.py:112: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/indexing.html#indexing-view-versus-copy
+
+ ######
+
+
+###### 2019-01-04 16:24:20,534 [WARNING] py.warnings -> C:\Users\LEI00020\Documents\Progetti\newreco\model\train_xgb.py:113: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/indexing.html#indexing-view-versus-copy
+
+ ######
+
+
+###### 2019-01-04 16:24:20,546 [INFO] model.train_xgb -> Salvo i risultati e i plot ######
+
+
+###### 2019-01-04 16:24:25,681 [WARNING] py.warnings -> C:\Users\LEI00020\gitfolder\helpers\viz\graph_func.py:92: RuntimeWarning:
+
+invalid value encountered in longlong_scalars
+
+ ######
+
+
+###### 2019-01-04 16:24:31,573 [INFO] luigi-interface -> [pid 10036] Worker Worker(salt=662934037, workers=1, host=IBOLAC5XSJM2000, username=LEI00020, pid=10036) done      TRAINMODEL(dataset_id=lagerta, model_id=lothbrok) ######
+
+
+###### 2019-01-04 16:24:31,577 [INFO] luigi-interface -> Informed scheduler that task   TRAINMODEL_lagerta_lothbrok_bbbaad3a2d   has status   DONE ######
+
+
+###### 2019-01-04 16:24:31,578 [INFO] luigi-interface -> Worker Worker(salt=662934037, workers=1, host=IBOLAC5XSJM2000, username=LEI00020, pid=10036) was stopped. Shutting down Keep-Alive thread ######
+
+
+###### 2019-01-04 16:24:31,581 [INFO] luigi-interface -> 
+===== Luigi Execution Summary =====
+
+Scheduled 3 tasks of which:
+* 3 ran successfully:
+    - 1 ETL(dataset_id=lagerta, path_dataset=\\direzione.gr-u.it\data\Innovation\PRJ\RecommendationSystem\Recommender_Global\GS\data\dati_recosys_new.csv)
+    - 1 PREPROC(dataset_id=lagerta, ls_keys=["CODICE_FISCALE"], sample=100000)
+    - 1 TRAINMODEL(dataset_id=lagerta, model_id=lothbrok)
+
+This progress looks :) because there were no failed tasks or missing external dependencies
+
+===== Luigi Execution Summary =====
+ ######
+

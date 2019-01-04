@@ -1,14 +1,25 @@
 '''
 Questo script processa i dati e deve generare lo yaml con info sulle feature, il depack, il label encoding
 '''
+import daiquiri
+import logging
 import numpy as np
 import os
 import pandas as pd
+import sys
 import yaml
 
 from collections import defaultdict
 
-os.chdir(os.path.dirname(os.path.abspath(__file__)))
+daiquiri.setup(level=logging.INFO, outputs=(
+    daiquiri.output.Stream(sys.stdout),
+    ))
+
+logger = daiquiri.getLogger(__name__, subsystem="Module PREPROC")
+
+dir_path = os.path.dirname(os.path.realpath(__file__))
+os.chdir(os.path.join(dir_path, '..'))
+
 
 def encode_cat(df, depack, qmin=0.01, verbose=True):
 
@@ -18,8 +29,8 @@ def encode_cat(df, depack, qmin=0.01, verbose=True):
 
     eccezioni = ['PROVINCIA']  # non vogliamo un warning per questi predittori
     for c in cats:
-        print(c)
-        print({i+1:(val[0],val[1]) for i,val in enumerate(cats[c].items())})
+        logger.info(c)
+        logger.info({i+1:(val[0],val[1]) for i,val in enumerate(cats[c].items())})
         diz_encode[c] = {val[0]:i+1 for i,val in enumerate(cats[c].items()) if val[1] >= qmin}
 
         escluso_tot = np.sum([val for val in cats[c].values() if val < qmin])
@@ -29,7 +40,7 @@ def encode_cat(df, depack, qmin=0.01, verbose=True):
         esclusi = [k for k,val in cats[c].items() if val < qmin]
         escluso_val = [val for k,val in cats[c].items() if val < qmin]
         if verbose and len(esclusi)>0:
-            print('''
+            logger.info('''
 Per la colonna {} abbiamo escluso il {}% del dataset
 perché composto da valori che singolarmente non toccano un valore di {}%:\n{}
             '''.format(c, round(escluso_tot,2)*100, qmin*100, '\n'.join([':'.join([str(b),str(round(a,2))]) for a,b in zip(escluso_val, esclusi)])))
@@ -137,6 +148,7 @@ def end_proc(dataset, qmin, nafiller='-999'):
         dataset[c].fillna(nafiller, inplace=True)
 
     ### DEPACK
+    logger.info('Applico il depack ed encodo le categoriche')
     depack = apply_depack(dataset, preds_cat, preds_cont)
 
     ### LABEL ENCODING
@@ -148,6 +160,7 @@ def end_proc(dataset, qmin, nafiller='-999'):
 
 def save_results(dataset_id, dataset, feats, depack, diz_encode):
     datasetPath = os.path.join('.', 'data', 'proc', dataset_id+'.csv')
+    logger.info('Salvo i risultati in {}'.format(datasetPath))
     dataset.to_csv(datasetPath, sep=';', index=False)
 
     diz_info = {
@@ -178,9 +191,12 @@ def load_perimetro(dataset_id, sample=None):
 
 def main_proc(dataset_id, skip=False, sample=None):
 
+    logger.info('Carico il dataset_id {}'.format(dataset_id))
+
     ### CARICO
     dataset = load_perimetro(dataset_id, sample)
 
+    logger.info('Lavoro il dataset')
     if not skip:
         ### PROCCO
         dataset = start_proc(dataset)

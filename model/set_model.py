@@ -2,18 +2,20 @@ import os
 import yaml
 from hyperopt import STATUS_OK, Trials, fmin, hp, tpe
 
-os.chdir(os.path.dirname(os.path.abspath(__file__)))
+dir_path = os.path.dirname(os.path.realpath(__file__))
+os.chdir(os.path.join(dir_path, '..'))
+
 
 def set_model_params(dataset_id, model_id):
 
     params = {
         'test_size':0.2,
-        'n_est_max':2,
-        'max_evals':3,
-        'n_jobs':4,
-        'use_hyperopt':False,
+        'n_est_max':700,
+        'max_evals':20,
+        'n_jobs':3,
+        'use_hyperopt':True,
         'use_grid':False,
-        'use_stratkfold':False,
+        'use_stratkfold':True,
         'strat_perc':0.3,
         'iperparams': {
             'colsample_bytree':0.5868323733872024,
