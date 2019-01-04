@@ -13,7 +13,7 @@ def set_model_params(dataset_id, model_id):
         'n_jobs':4,
         'use_hyperopt':False,
         'use_grid':False,
-        'use_stratkfold':True,
+        'use_stratkfold':False,
         'strat_perc':0.3,
         'iperparams': {
             'colsample_bytree':0.5868323733872024,
@@ -46,7 +46,7 @@ def set_model_params(dataset_id, model_id):
                 }
             }
 
-    yaml.dump({'DATASET_ID':dataset_id, 'PARAMETRI':params},open(os.path.join('..', 'config', 'model', 'parametri_'+model_id+'.yaml'),'w'))
+    yaml.dump({'DATASET_ID':dataset_id, 'PARAMETRI':params},open(os.path.join('.', 'config', 'model', 'parametri_'+model_id+'.yaml'),'w'))
 
 if __name__ == '__main__':
     set_model_params('possessi_reco', 'model_xgbprova')

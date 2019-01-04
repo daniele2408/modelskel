@@ -25,10 +25,10 @@ os.chdir(os.path.dirname(os.path.abspath(__file__)))
 def train_model(model_id):
 
     ### CARICO PARAMETRI
-    cfg = yaml.load(open(os.path.join('..', 'config', 'model', 'parametri_'+model_id+'.yaml'), 'r'))
+    cfg = yaml.load(open(os.path.join('.', 'config', 'model', 'parametri_'+model_id+'.yaml'), 'r'))
     params = cfg['PARAMETRI']
 
-    cfgData = yaml.load(open(os.path.join('..', 'config', 'dataset', cfg['DATASET_ID']+'.yaml'), 'r'))
+    cfgData = yaml.load(open(os.path.join('.', 'config', 'dataset', cfg['DATASET_ID']+'.yaml'), 'r'))
 
     diz_le = cfgData['DIZ_ENCODE']
     feat_info = cfgData['FEAT_INFO']
@@ -57,6 +57,8 @@ def train_model(model_id):
     X,y = dataset[predittori], dataset[target[0]]
     print('Distribuzione variabile target')
     print(y.value_counts())
+
+    print(X.isnull().sum())
 
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=testsize, random_state=42, stratify=dataset[target])
     train = pd.concat([X_train, y_train], axis=1)
@@ -105,12 +107,12 @@ def train_model(model_id):
 
 def save_results(model_id, model, data_preds, diz_results, target):
     print('Salvo i risultati e i plot')
-    joblib.dump(model, os.path.join('..', 'data', 'resources', 'models', model_id+'.model'))
-    cfg = yaml.load(open(os.path.join('..', 'config', 'model', 'parametri_'+model_id+'.yaml'), 'r'))
+    joblib.dump(model, os.path.join('.', 'data', 'resources', 'models', model_id+'.model'))
+    cfg = yaml.load(open(os.path.join('.', 'config', 'model', 'parametri_'+model_id+'.yaml'), 'r'))
     cfg['RISULTATI'] = diz_results
-    yaml.dump(cfg, open(os.path.join('..', 'config', 'model', 'parametri_'+model_id+'.yaml'), 'w'))
+    yaml.dump(cfg, open(os.path.join('.', 'config', 'model', 'parametri_'+model_id+'.yaml'), 'w'))
 
-    cfggen = yaml.load(open(os.path.join('..', 'config', 'cfg.yaml'), 'r'))
+    cfggen = yaml.load(open(os.path.join('.', 'config', 'cfg.yaml'), 'r'))
     print(cfggen)
     rootDir = cfggen['FILEPATH']['rootDir']
     print(rootDir)
@@ -120,7 +122,7 @@ def save_results(model_id, model, data_preds, diz_results, target):
         target,
         'score',
         ['accuracy', 'recall', 'precision', 'miss_error_0', 'miss_error_1', 'precision_0'],
-        os.path.join('..', 'data', 'resources', 'plot'),
+        os.path.join('.', 'data', 'resources', 'plot'),
         'roc_curve_{}.html'.format(model_id),
         save=False
         )
@@ -131,7 +133,7 @@ def save_results(model_id, model, data_preds, diz_results, target):
         data_preds,
         target,
         'score',
-        os.path.join('..', 'data', 'resources', 'plot'),
+        os.path.join('.', 'data', 'resources', 'plot'),
         'lift_chart_{}.html'.format(model_id),
         save=False
     )
@@ -140,7 +142,7 @@ def save_results(model_id, model, data_preds, diz_results, target):
         data_preds,
         target,
         'score',
-        os.path.join('..', 'data', 'resources', 'plot'),
+        os.path.join('.', 'data', 'resources', 'plot'),
         'grafico_metriche_{}.html'.format(model_id),
         ['accuracy', 'recall', 'precision', 'miss_error_0', 'miss_error_1', 'precision_0'],
         save=False
@@ -159,5 +161,5 @@ def main_train(model_id):
 if __name__ == '__main__':
 
     print(os.getcwd())
-    assert os.path.exists(os.path.join('..', 'data', 'resources', 'plot'))
+    assert os.path.exists(os.path.join('.', 'data', 'resources', 'plot'))
     main_train('model_xgbprova')

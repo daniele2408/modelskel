@@ -4,6 +4,8 @@ import pandas as pd
 import yaml
 
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
+pd.set_option('display.max_rows', 500)
+pd.set_option('display.max_columns', 10)
 
 def report_data(dataset_id, supposed_pk, qmin=0.01, sample=None):
     '''
@@ -16,7 +18,7 @@ def report_data(dataset_id, supposed_pk, qmin=0.01, sample=None):
 
     '''
 
-    cfg = yaml.load(open(os.path.join('..', 'config', 'dataset', 'etl_'+dataset_id+'.yaml'), 'r'))
+    cfg = yaml.load(open(os.path.join('.', 'config', 'dataset', 'etl_'+dataset_id+'.yaml'), 'r'))
 
     if sample is None:
         df = pd.read_csv(cfg['FILEPATH'].replace('\\', '/'), sep=';',
@@ -24,11 +26,17 @@ def report_data(dataset_id, supposed_pk, qmin=0.01, sample=None):
                             )
     else:
         df = pd.read_csv(cfg['FILEPATH'].replace('\\', '/'), sep=';',
-                        decimal=".",keep_default_na = False, na_values = [""]
+                        decimal=".",keep_default_na = False, na_values = [""],
+                        nrows=sample
                             )
 
     # sintesi
-    print(utils.check_col_types(df))
+    descrdf = utils.check_col_types(df)
+    print(descrdf)
+
+    diz_tipi = {n:g['colonna'].tolist() for n,g in descrdf.groupby('tipo')}
+    for k,v in diz_tipi.items():
+        print(k,v,end='\n\n')
 
     # controlla valori unici
     try:
@@ -43,4 +51,4 @@ def report_data(dataset_id, supposed_pk, qmin=0.01, sample=None):
     return
 
 if __name__ == '__main__':
-    report_data('possessi_reco', ['CODICE_FISCALE'], sample=1000000)
+    report_data('possessi_reco', ['CODICE_FISCALE'])

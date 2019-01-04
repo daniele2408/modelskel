@@ -82,7 +82,7 @@ def start_proc(dataset, keep=None, drop=None, qmin=0.01):
 
     ### ELABORAZIONI VARIE
     print('...Mox elaborandum est...')
-    dataset['SESSO'] = np.where(dataset['SESSO']=='M', 1, 0)
+
     print('...Data elaborata sunt...')
 
     return dataset
@@ -91,10 +91,31 @@ def start_proc(dataset, keep=None, drop=None, qmin=0.01):
 def end_proc(dataset, qmin, nafiller='-999'):
 
     ### IDENTIFICAZIONE LABEL
-    preds_cont = ['Imm_Compr_min', 'REDDITO_ME', 'CL_Redd', 'RISK_SB', 'anzianita_cliente', 'eta_anagrafica']
-    preds_cat = ['PROVINCIA', 'Imm_Fascia', 'MTYPE', 'ATTIVITA_NEW']
+    preds_cont = [
+        'REDDITO_ME',
+        'AN_SC_000070',
+        'CN_DF_DS_000020',
+        'zone_risk1',
+        'CL_Redd',
+        'zone_risk2',
+        'AN_SC_000010',
+        'AN_CN_AT_000140',
+        'AN_000280',
+        'RISK_SB',
+        'GEODELPHI_PLUS',
+        'anzianita_cliente',
+        'flagEmail',
+        'flagTelefono',
+        'eta_anagrafica'
+        ]
+    preds_cat = [
+        'PROVINCIA',
+        'Imm_Fascia',
+        'MTYPE',
+        'ATTIVITA_NEW'
+        ]
     chiavi = ['CODICE_FISCALE']
-    target = ['POSSESSO_VITA_INVESTIMENTO_x']
+    target = ['POSSESSO_VITA_INVESTIMENTO_y']
 
     feature_info = {
         'FEATURE_CONTINUE':preds_cont,
@@ -126,7 +147,7 @@ def end_proc(dataset, qmin, nafiller='-999'):
     return dataset, feature_info, depack, diz_encode
 
 def save_results(dataset_id, dataset, feats, depack, diz_encode):
-    datasetPath = os.path.join('..', 'data', 'proc', dataset_id+'.csv')
+    datasetPath = os.path.join('.', 'data', 'proc', dataset_id+'.csv')
     dataset.to_csv(datasetPath, sep=';', index=False)
 
     diz_info = {
@@ -136,10 +157,10 @@ def save_results(dataset_id, dataset, feats, depack, diz_encode):
         'DIZ_ENCODE':diz_encode,
     }
 
-    yaml.dump(diz_info, open(os.path.join('..', 'config', 'dataset', dataset_id+'.yaml'), 'w'), default_flow_style=False, allow_unicode=True)
+    yaml.dump(diz_info, open(os.path.join('.', 'config', 'dataset', dataset_id+'.yaml'), 'w'), default_flow_style=False, allow_unicode=True)
 
 def load_perimetro(dataset_id, sample=None):
-    cfg = yaml.load(open(os.path.join('..', 'config', 'dataset', 'etl_'+dataset_id+'.yaml'), 'r'))
+    cfg = yaml.load(open(os.path.join('.', 'config', 'dataset', 'etl_'+dataset_id+'.yaml'), 'r'))
 
     if sample:
         return pd.read_csv(
@@ -182,5 +203,5 @@ if __name__ == '__main__':
             })
         main_proc('dataprova')
 
-    main_proc('possessi_reco', skip=True, sample=100000)
+    main_proc('possessi_reco', skip=True)
 
