@@ -12,20 +12,39 @@ Se si vuole impostare un parametro da CLI scrivere
 ricordandosi di sostituire le '_' con '-' in $nomevariabile
 '''
 
+import daiquiri
+import daiquiri.formatter
+import logging
 import luigi
 import os
 import pandas as pd
+import sys
 import yaml
 
 from etl import collector
 from preproc import report_data, proc_data
 from model import set_model, train_xgb
 
+luigi.interface.setup_interface_logging.has_run = True
+
 dir_path = os.path.dirname(os.path.realpath(__file__))
-os.chdir(os.path.join(dir_path, '..'))
+os.chdir(dir_path)
+print(os.getcwd())
 
 datasetID = ''
 modelID = ''
+sampleZ = None
+
+daiquiri.setup(
+        level=logging.INFO,
+        outputs=(
+            daiquiri.output.Stream(sys.stdout),
+            daiquiri.output.File('./logs/logs.log', level=logging.INFO,
+            formatter=daiquiri.formatter.ColorFormatter(
+        fmt="\n###### %(asctime)s [%(levelname)s] %(name)s -> %(message)s ######\n")),
+        )
+    )
+logger = daiquiri.getLogger(__name__, propagate=False)
 
 
 class ETL(luigi.Task):
@@ -40,8 +59,7 @@ class ETL(luigi.Task):
         pass
 
     def output(self):
-        cfg = yaml.load(open(os.path.join('.', 'config', 'dataset', 'etl_'+self.dataset_id+'.yaml'), 'r'))
-        return luigi.LocalTarget(cfg['FILEPATH'])
+        return luigi.LocalTarget(os.path.join('.', 'config', 'dataset', 'etl_'+self.dataset_id+'.yaml'))
         
 
 class PREPROC(luigi.Task):
@@ -57,8 +75,8 @@ class PREPROC(luigi.Task):
         pass
 
     def output(self):
-        cfg = yaml.load(open(os.path.join('.', 'config', 'dataset', self.dataset_id+'.yaml'), 'r'))
-        return luigi.LocalTarget(os.path.join(os.getcwd(),cfg['FILEPATH']))
+        return luigi.LocalTarget(os.path.join('.', 'config', 'dataset', self.dataset_id+'.yaml'))
+
 
 
 class TRAINMODEL(luigi.Task):
@@ -72,7 +90,8 @@ class TRAINMODEL(luigi.Task):
         pass
 
     def output(self):
-        return luigi.LocalTarget(os.path.join('.', 'data', 'resources', 'models', self.model_id+'.model'))
+        return luigi.LocalTarget(os.path.join('.', 'data', 'resources', 'models', '{}_{}.model'.format(self.dataset_id, self.model_id)))
+
         
 
 if __name__ == '__main__':

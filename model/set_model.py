@@ -2,8 +2,9 @@ import os
 import yaml
 from hyperopt import STATUS_OK, Trials, fmin, hp, tpe
 
-dir_path = os.path.dirname(os.path.realpath(__file__))
-os.chdir(os.path.join(dir_path, '..'))
+logger.info('Parte la pipeline su dataset {} e modello {}'.format(datasetID, modelID))
+if sampleZ:
+    logger.info('La run è una prova con un sample n={}'.format(sampleZ))
 
 
 def set_model_params(dataset_id, model_id):
