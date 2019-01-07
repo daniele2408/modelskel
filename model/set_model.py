@@ -10,8 +10,8 @@ def set_model_params(dataset_id, model_id):
 
     params = {
         'test_size':0.2,
-        'n_est_max':3,
-        'max_evals':3,
+        'n_est_max':700,
+        'max_evals':20,  # per hyperopt
         'n_jobs':3,
         'use_grid':False,
         'use_hyperopt':True,
@@ -27,7 +27,7 @@ def set_model_params(dataset_id, model_id):
             'min_child_weight':8,
             'reg_alpha':0.560674658894005,
             'reg_lambda':0.04109383840952241,
-            'n_estimators':3,  # 700
+            'n_estimators':700,  # 700
             'n_jobs':3,
             'objective':'binary:logistic'
         },
