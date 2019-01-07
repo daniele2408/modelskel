@@ -53,6 +53,7 @@ def train_model(model_id):
     use_grid = params['use_grid']
     use_stratkfold = params['use_stratkfold']
     iperparams = params['iperparams']
+    n_est = iperparams['n_estimators']
 
     use_hyperopt = params['use_hyperopt']
     max_evals = params['max_evals']
@@ -96,7 +97,11 @@ def train_model(model_id):
         params_opt, min_logloss, trials_results, trials_raw = apply_hyperopt(space, n_est, X_train, y_train, X_test, y_test, max_evals=max_evals)
 
         must_int = {'max_depth','min_child_weight', 'n_estimators'}
-        iperparams = {k:(v[0] if k not in must_int else int(v[0])) for k,v in params_opt.items()}
+        for k,v in params_opt.items():
+            iperparams[k] = v[0] if k not in must_int else int(v[0])
+
+        print(params_opt)
+        print(iperparams)
 
     logger.info('Fitto il modello')
 
@@ -110,12 +115,15 @@ def train_model(model_id):
 
     logger.info('Calibro il modello')
     X_test['score'] = bestmodel.predict_proba(X_test)[:,1].copy()
-    X_test[target[0]] = y_test.copy()
 
     auc = roc_auc_score(y_test, X_test['score'])
     logloss = log_loss(y_test, X_test['score'])
-
-    return bestmodel, X_test, {'auc':float(auc), 'logloss':float(logloss)}, target[0]
+    
+    testFull = X_test.copy()
+    print(y_test.head())
+    testFull[target[0]] = y_test.copy()
+    
+    return bestmodel, testFull, {'auc':float(auc), 'logloss':float(logloss)}, target[0]
 
 def save_results(model_id, dataset_id, model, data_preds, diz_results, target):
     logger.info('Salvo i risultati e i plot')
@@ -124,7 +132,7 @@ def save_results(model_id, dataset_id, model, data_preds, diz_results, target):
     cfg['RISULTATI'] = diz_results
     yaml.dump(cfg, open(os.path.join('.', 'config', 'model', 'parametri_'+model_id+'.yaml'), 'w'))
 
-
+    data_preds.to_csv(os.path.join('.', 'data', 'pred', '{}_{}_pred.csv'.format(dataset_id, model_id)), index=False, sep=';')
     
     roc_fig = gf.roc_curve_annotated(
         data_preds,

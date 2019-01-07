@@ -15,5 +15,6 @@ create_dirs('.', [
     'preproc', 'model', 'collaudo',
     'data', 'data/resources', 'data/perimetro',
     'data/proc', 'data/pred', 'data/coll',
-    'data/resources/csv', 'data/resources/json', 'data/resources/pickle', 'data/resources/plot', 'data/resources/models'
+    'data/resources/csv', 'data/resources/json', 'data/resources/pickle', 'data/resources/plot', 'data/resources/models',
+    'testing'
     ])

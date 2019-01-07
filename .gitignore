@@ -6,3 +6,4 @@ config/dataset/*
 config/model/*
 data/*
 main.py
+testing/*

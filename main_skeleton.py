@@ -47,6 +47,10 @@ daiquiri.setup(
 logger = daiquiri.getLogger(__name__, propagate=False)
 
 
+logger.info('Parte la pipeline su dataset {} e modello {}'.format(datasetID, modelID))
+if sampleZ:
+    logger.info('La run è una prova con un sample n={}'.format(sampleZ))
+
 class ETL(luigi.Task):
 
     dataset_id = luigi.Parameter(default=datasetID)

@@ -458,3 +458,1715 @@ This progress looks :) because there were no failed tasks or missing external de
 ===== Luigi Execution Summary =====
  ######
 
+
+###### 2019-01-04 16:34:15,495 [INFO] __main__ -> Parte la pipeline su dataset possessi_reco e modello xgb_stratcv ######
+
+
+###### 2019-01-04 16:34:15,594 [INFO] luigi-interface -> Loaded [] ######
+
+
+###### 2019-01-04 16:34:16,095 [INFO] luigi-interface -> Informed scheduler that task   TRAINMODEL_possessi_reco_xgb_stratcv_1c2bc48584   has status   PENDING ######
+
+
+###### 2019-01-04 16:34:16,099 [INFO] luigi-interface -> Informed scheduler that task   PREPROC_possessi_reco___CODICE_FISCALE_None_32bf262ada   has status   PENDING ######
+
+
+###### 2019-01-04 16:34:16,101 [INFO] luigi-interface -> Informed scheduler that task   ETL_possessi_reco___direzione_gr_u_974521984a   has status   PENDING ######
+
+
+###### 2019-01-04 16:34:16,102 [INFO] luigi-interface -> Done scheduling tasks ######
+
+
+###### 2019-01-04 16:34:16,103 [INFO] luigi-interface -> Running Worker with 1 processes ######
+
+
+###### 2019-01-04 16:34:16,105 [INFO] luigi-interface -> [pid 21648] Worker Worker(salt=137942227, workers=1, host=IBOLAC5XSJM2000, username=LEI00020, pid=21648) running   ETL(dataset_id=possessi_reco, path_dataset=\\direzione.gr-u.it\data\Innovation\PRJ\RecommendationSystem\Recommender_Global\GS\data\dati_recosys_new.csv) ######
+
+
+###### 2019-01-04 16:34:16,109 [INFO] etl.collector -> Salvo il risultato dell'ETL in \\direzione.gr-u.it\data\Innovation\PRJ\RecommendationSystem\Recommender_Global\GS\data\dati_recosys_new.csv, con dataset_id possessi_reco ######
+
+
+###### 2019-01-04 16:34:16,118 [INFO] luigi-interface -> [pid 21648] Worker Worker(salt=137942227, workers=1, host=IBOLAC5XSJM2000, username=LEI00020, pid=21648) done      ETL(dataset_id=possessi_reco, path_dataset=\\direzione.gr-u.it\data\Innovation\PRJ\RecommendationSystem\Recommender_Global\GS\data\dati_recosys_new.csv) ######
+
+
+###### 2019-01-04 16:34:16,124 [INFO] luigi-interface -> Informed scheduler that task   ETL_possessi_reco___direzione_gr_u_974521984a   has status   DONE ######
+
+
+###### 2019-01-04 16:34:16,127 [INFO] luigi-interface -> [pid 21648] Worker Worker(salt=137942227, workers=1, host=IBOLAC5XSJM2000, username=LEI00020, pid=21648) running   PREPROC(dataset_id=possessi_reco, ls_keys=["CODICE_FISCALE"], sample=None) ######
+
+
+###### 2019-01-04 16:34:16,133 [INFO] preproc.report_data -> Stampo un report per il dataset_id possessi_reco, file locato in //direzione.gr-u.it/data/Innovation/PRJ/RecommendationSystem/Recommender_Global/GS/data/dati_recosys_new.csv ######
+
+
+###### 2019-01-04 16:42:38,209 [WARNING] py.warnings -> C:\Users\LEI00020\AppData\Local\Continuum\anaconda3\lib\site-packages\luigi\worker.py:203: DtypeWarning:
+
+Columns (23) have mixed types. Specify dtype option on import or set low_memory=False.
+
+ ######
+
+
+###### 2019-01-04 16:43:45,489 [INFO] preproc.report_data ->                          colonna     tipo  valori_unici  nm_missing  \
+73                    Imm_Fascia   object             5     1440852   
+72                 Imm_Compr_min  float64           212     1440852   
+16     POSSESSO_VITA_RISPARMIO_x  float64             3      916124   
+12          POSSESSO_INFORTUNI_x  float64             3      916124   
+20              POSSESSO_ALTRO_x  float64             3      916124   
+19     POSSESSO_CONTO_CORRENTE_x  float64             3      916124   
+18    POSSESSO_VITA_PREVIDENZA_x  float64             3      916124   
+17    POSSESSO_VITA_PROTEZIONE_x  float64             3      916124   
+46                         SUM_x  float64            12      916124   
+15  POSSESSO_VITA_INVESTIMENTO_x  float64             3      916124   
+14  POSSESSO_ABITAZIONE_INCFUR_x  float64             3      916124   
+13           POSSESSO_MALATTIA_x  float64             3      916124   
+11               POSSESSO_AUTO_x  float64             3      916124   
+23                    dataEstr_x   object             2      916124   
+64                    REDDITO_ME  float64        240835      392897   
+69                  AN_SC_000030  float64         64022      319094   
+70                  AN_SC_000070  float64         74846      292341   
+71               CN_DF_DS_000020  float64         45463      238510   
+74                    zone_risk1  float64            60      231193   
+67               AN_CN_AT_000140  float64         41774      230957   
+66                     AN_000280  float64         13917      230957   
+65                       CL_Redd  float64             9      230957   
+68                  AN_SC_000010  float64        134193      230957   
+75                    zone_risk2  float64            75      230957   
+76                        MGROUP   object            13      167982   
+77                         MTYPE  float64            49       60775   
+30                       RISK_SB  float64           100       29186   
+29                       REGIONE   object            21       29178   
+31                GEODELPHI_PLUS  float64            95       14728   
+21               data_cliente_da   object         15682        1940   
+4              TIPO_CLIENTE_DESC   object           170         773   
+62                      sezrid09  float64        297452         188   
+78                     microzona  float64        308119         157   
+63                       address   object       5020684           0   
+61                 GEOCODER_ADDR   object       5020684           0   
+60                 cliente_nuovo    int64             2           0   
+59               COMPRATO_NOAUTO    int64             2           0   
+58                      COMPRATO    int64             2           0   
+57                COMPRATO_ALTRO    int64             2           0   
+56       COMPRATO_CONTO_CORRENTE    int64             2           0   
+55      COMPRATO_VITA_PREVIDENZA    int64             2           0   
+54      COMPRATO_VITA_PROTEZIONE    int64             2           0   
+53       COMPRATO_VITA_RISPARMIO    int64             2           0   
+52    COMPRATO_VITA_INVESTIMENTO    int64             2           0   
+51    COMPRATO_ABITAZIONE_INCFUR    int64             2           0   
+50             COMPRATO_MALATTIA    int64             2           0   
+48                 COMPRATO_AUTO    int64             2           0   
+49            COMPRATO_INFORTUNI    int64             2           0   
+0                     ID_CLIENTE    int64       8757694           0   
+47                         SUM_y  float64            11           0   
+45                    dataEstr_y   object             1           0   
+2               FLAG_CLIENTE_TOP    int64             2           0   
+3              CLIENTE_INTEGRATO    int64             2           0   
+5                          SESSO    int64             2           0   
+6              FLAG_CAPOFAMIGLIA    int64             2           0   
+7                            VIA   object       3257851           0   
+8                         COMUNE   object          8636           0   
+9                      PROVINCIA   object           112           0   
+10                 TIPO_CONSENSO   object             8           0   
+22              data_nascita_cli   object         30169           0   
+24                  flagTelefono  float64             2           0   
+25                     flagEmail  float64             2           0   
+26                eta_anagrafica  float64         57586           0   
+27             anzianita_cliente  float64         26417           0   
+28                           CAP    int64          5477           0   
+32                   FLAGSTR_CRM  float64             2           0   
+33                   NAZIONALITA   object           242           0   
+34                  ATTIVITA_NEW   object            16           0   
+35               POSSESSO_AUTO_y    int64             2           0   
+36          POSSESSO_INFORTUNI_y    int64             2           0   
+37           POSSESSO_MALATTIA_y    int64             2           0   
+38  POSSESSO_ABITAZIONE_INCFUR_y    int64             2           0   
+1                 CODICE_FISCALE   object       8757694           0   
+40     POSSESSO_VITA_RISPARMIO_y    int64             2           0   
+41    POSSESSO_VITA_PROTEZIONE_y    int64             2           0   
+42    POSSESSO_VITA_PREVIDENZA_y    int64             2           0   
+43     POSSESSO_CONTO_CORRENTE_y    int64             2           0   
+44              POSSESSO_ALTRO_y    int64             2           0   
+39  POSSESSO_VITA_INVESTIMENTO_y    int64             2           0   
+
+    nm_missing_perc  
+73         0.164524  
+72         0.164524  
+16         0.104608  
+12         0.104608  
+20         0.104608  
+19         0.104608  
+18         0.104608  
+17         0.104608  
+46         0.104608  
+15         0.104608  
+14         0.104608  
+13         0.104608  
+11         0.104608  
+23         0.104608  
+64         0.044863  
+69         0.036436  
+70         0.033381  
+71         0.027234  
+74         0.026399  
+67         0.026372  
+66         0.026372  
+65         0.026372  
+68         0.026372  
+75         0.026372  
+76         0.019181  
+77         0.006940  
+30         0.003333  
+29         0.003332  
+31         0.001682  
+21         0.000222  
+4          0.000088  
+62         0.000021  
+78         0.000018  
+63         0.000000  
+61         0.000000  
+60         0.000000  
+59         0.000000  
+58         0.000000  
+57         0.000000  
+56         0.000000  
+55         0.000000  
+54         0.000000  
+53         0.000000  
+52         0.000000  
+51         0.000000  
+50         0.000000  
+48         0.000000  
+49         0.000000  
+0          0.000000  
+47         0.000000  
+45         0.000000  
+2          0.000000  
+3          0.000000  
+5          0.000000  
+6          0.000000  
+7          0.000000  
+8          0.000000  
+9          0.000000  
+10         0.000000  
+22         0.000000  
+24         0.000000  
+25         0.000000  
+26         0.000000  
+27         0.000000  
+28         0.000000  
+32         0.000000  
+33         0.000000  
+34         0.000000  
+35         0.000000  
+36         0.000000  
+37         0.000000  
+38         0.000000  
+1          0.000000  
+40         0.000000  
+41         0.000000  
+42         0.000000  
+43         0.000000  
+44         0.000000  
+39         0.000000   ######
+
+
+###### 2019-01-04 16:43:54,020 [INFO] preproc.report_data -> True ######
+
+
+###### 2019-01-04 16:43:54,022 [INFO] preproc.proc_data -> Carico il dataset_id possessi_reco ######
+
+
+###### 2019-01-04 16:52:36,447 [WARNING] py.warnings -> C:\Users\LEI00020\AppData\Local\Continuum\anaconda3\lib\site-packages\luigi\worker.py:140: DtypeWarning:
+
+Columns (23) have mixed types. Specify dtype option on import or set low_memory=False.
+
+ ######
+
+
+###### 2019-01-04 16:52:45,388 [INFO] preproc.proc_data -> Lavoro il dataset ######
+
+
+###### 2019-01-04 16:53:08,036 [INFO] preproc.proc_data -> Applico il depack ed encodo le categoriche ######
+
+
+###### 2019-01-04 16:53:15,370 [INFO] preproc.proc_data -> PROVINCIA ######
+
+
+###### 2019-01-04 16:53:15,373 [INFO] preproc.proc_data -> {1: ('RM', 0.0612), 2: ('MI', 0.0479), 3: ('TO', 0.0416), 4: ('NA', 0.0343), 5: ('BA', 0.0231), 6: ('BS', 0.0227), 7: ('FI', 0.0224), 8: ('PA', 0.0209), 9: ('BG', 0.0199), 10: ('BO', 0.0197), 11: ('CT', 0.0196), 12: ('SA', 0.0173), 13: ('CE', 0.0171), 14: ('VI', 0.0166), 15: ('VA', 0.0158), 16: ('MO', 0.0153), 17: ('MB', 0.0144), 18: ('GE', 0.0142), 19: ('PD', 0.0136), 20: ('VR', 0.0135), 21: ('TV', 0.0134), 22: ('PG', 0.0121), 23: ('ME', 0.0118), 24: ('CS', 0.0118), 25: ('LE', 0.0108), 26: ('RE', 0.0106), 27: ('VE', 0.0105), 28: ('CO', 0.0101), 29: ('CN', 0.0096), 30: ('FG', 0.0095), 31: ('AL', 0.0092), 32: ('CA', 0.0091), 33: ('FR', 0.0091), 34: ('UD', 0.0089), 35: ('LT', 0.0085), 36: ('AN', 0.0084), 37: ('RC', 0.0084), 38: ('TA', 0.0084), 39: ('PI', 0.0082), 40: ('RA', 0.0082), 41: ('PV', 0.0081), 42: ('PU', 0.0081), 43: ('LU', 0.0081), 44: ('FE', 0.0081), 45: ('TP', 0.0079), 46: ('LI', 0.0076), 47: ('FC', 0.0075), 48: ('AV', 0.0075), 49: ('MN', 0.0074), 50: ('BR', 0.0074), 51: ('NO', 0.0071), 52: ('PR', 0.007), 53: ('AG', 0.0066), 54: ('SR', 0.0066), 55: ('CZ', 0.0064), 56: ('CR', 0.0063), 57: ('RN', 0.0062), 58: ('PN', 0.0062), 59: ('PZ', 0.0061), 60: ('CH', 0.0061), 61: ('AR', 0.006), 62: ('GR', 0.006), 63: ('LC', 0.0059), 64: ('MC', 0.0059), 65: ('SI', 0.0058), 66: ('RG', 0.0056), 67: ('TN', 0.0053), 68: ('VT', 0.0053), 69: ('BT', 0.0053), 70: ('PC', 0.0052), 71: ('SV', 0.0051), 72: ('PE', 0.0051), 73: ('PT', 0.0049), 74: ('BZ', 0.0047), 75: ('AQ', 0.0046), 76: ('SS', 0.0045), 77: ('CB', 0.0044), 78: ('PO', 0.0043), 79: ('AT', 0.0042), 80: ('BN', 0.004), 81: ('AP', 0.004), 82: ('TS', 0.0038), 83: ('RO', 0.0037), 84: ('TR', 0.0037), 85: ('BI', 0.0037), 86: ('BL', 0.0037), 87: ('TE', 0.0037), 88: ('VC', 0.0036), 89: ('SP', 0.0036), 90: ('VB', 0.0034), 91: ('MT', 0.0034), 92: ('LO', 0.0033), 93: ('FM', 0.0033), 94: ('IM', 0.0033), 95: ('MS', 0.0031), 96: ('CL', 0.003), 97: ('OR', 0.0029), 98: ('SO', 0.0028), 99: ('NU', 0.0025), 100: ('GO', 0.0025), 101: ('AO', 0.0025), 102: ('OT', 0.0025), 103: ('RI', 0.0024), 104: ('KR', 0.0024), 105: ('CI', 0.0022), 106: ('EN', 0.0022), 107: ('VV', 0.0022), 108: ('IS', 0.0016), 109: ('VS', 0.0016), 110: ('OG', 0.0008), 111: ('PS', 0.0001), 112: ('SU', 0.0)} ######
+
+
+###### 2019-01-04 16:53:15,379 [INFO] preproc.proc_data -> 
+Per la colonna PROVINCIA abbiamo escluso il 44.0% del dataset
+perché composto da valori che singolarmente non toccano un valore di 1.0%:
+CN:0.01
+FG:0.01
+AL:0.01
+CA:0.01
+FR:0.01
+UD:0.01
+LT:0.01
+AN:0.01
+RC:0.01
+TA:0.01
+PI:0.01
+RA:0.01
+PV:0.01
+PU:0.01
+LU:0.01
+FE:0.01
+TP:0.01
+LI:0.01
+FC:0.01
+AV:0.01
+MN:0.01
+BR:0.01
+NO:0.01
+PR:0.01
+AG:0.01
+SR:0.01
+CZ:0.01
+CR:0.01
+RN:0.01
+PN:0.01
+PZ:0.01
+CH:0.01
+AR:0.01
+GR:0.01
+LC:0.01
+MC:0.01
+SI:0.01
+RG:0.01
+TN:0.01
+VT:0.01
+BT:0.01
+PC:0.01
+SV:0.01
+PE:0.01
+PT:0.0
+BZ:0.0
+AQ:0.0
+SS:0.0
+CB:0.0
+PO:0.0
+AT:0.0
+BN:0.0
+AP:0.0
+TS:0.0
+RO:0.0
+TR:0.0
+BI:0.0
+BL:0.0
+TE:0.0
+VC:0.0
+SP:0.0
+VB:0.0
+MT:0.0
+LO:0.0
+FM:0.0
+IM:0.0
+MS:0.0
+CL:0.0
+OR:0.0
+SO:0.0
+NU:0.0
+GO:0.0
+AO:0.0
+OT:0.0
+RI:0.0
+KR:0.0
+CI:0.0
+EN:0.0
+VV:0.0
+IS:0.0
+VS:0.0
+OG:0.0
+PS:0.0
+SU:0.0
+             ######
+
+
+###### 2019-01-04 16:53:15,391 [INFO] preproc.proc_data -> Imm_Fascia ######
+
+
+###### 2019-01-04 16:53:15,395 [INFO] preproc.proc_data -> {1: ('Centrale', 0.3062), 2: ('Periferica', 0.2659), 3: ('-999', 0.1645), 4: ('Semicentrale', 0.1586), 5: ('Suburbana', 0.1046)} ######
+
+
+###### 2019-01-04 16:53:15,395 [INFO] preproc.proc_data -> MTYPE ######
+
+
+###### 2019-01-04 16:53:15,396 [INFO] preproc.proc_data -> {1: ('29.0', 0.0578), 2: ('33.0', 0.056), 3: ('36.0', 0.0482), 4: ('20.0', 0.0449), 5: ('32.0', 0.0445), 6: ('28.0', 0.0385), 7: ('37.0', 0.0355), 8: ('24.0', 0.0351), 9: ('44.0', 0.035), 10: ('41.0', 0.0339), 11: ('34.0', 0.0317), 12: ('4.0', 0.0269), 13: ('31.0', 0.0262), 14: ('18.0', 0.0257), 15: ('10.0', 0.0243), 16: ('42.0', 0.0238), 17: ('46.0', 0.0216), 18: ('3.0', 0.0204), 19: ('39.0', 0.0203), 20: ('19.0', 0.0201), 21: ('30.0', 0.0198), 22: ('21.0', 0.0189), 23: ('15.0', 0.0173), 24: ('38.0', 0.0173), 25: ('25.0', 0.0166), 26: ('14.0', 0.0154), 27: ('45.0', 0.0153), 28: ('12.0', 0.0146), 29: ('7.0', 0.0144), 30: ('11.0', 0.0133), 31: ('17.0', 0.0132), 32: ('43.0', 0.013), 33: ('16.0', 0.0129), 34: ('99.0', 0.0122), 35: ('8.0', 0.0113), 36: ('2.0', 0.0107), 37: ('5.0', 0.0104), 38: ('22.0', 0.0096), 39: ('9.0', 0.0092), 40: ('35.0', 0.008), 41: ('23.0', 0.0075), 42: ('-999', 0.0069), 43: ('27.0', 0.0069), 44: ('26.0', 0.0062), 45: ('13.0', 0.006), 46: ('6.0', 0.0058), 47: ('1.0', 0.0058), 48: ('40.0', 0.0057), 49: ('47.0', 0.0055)} ######
+
+
+###### 2019-01-04 16:53:15,398 [INFO] preproc.proc_data -> 
+Per la colonna MTYPE abbiamo escluso il 8.0% del dataset
+perché composto da valori che singolarmente non toccano un valore di 1.0%:
+22.0:0.01
+9.0:0.01
+35.0:0.01
+23.0:0.01
+-999:0.01
+27.0:0.01
+26.0:0.01
+13.0:0.01
+6.0:0.01
+1.0:0.01
+40.0:0.01
+47.0:0.01
+             ######
+
+
+###### 2019-01-04 16:53:15,399 [INFO] preproc.proc_data -> ATTIVITA_NEW ######
+
+
+###### 2019-01-04 16:53:15,400 [INFO] preproc.proc_data -> {1: ('ALTRO', 0.3194), 2: ('IMPIEGATO', 0.2584), 3: ('PENSIONATO', 0.1044), 4: ('OPERAIO', 0.0979), 5: ('CASALINGA', 0.0451), 6: ('PROFESSIONISTA', 0.0434), 7: ('PUBBLICO DIPENDENTE', 0.0294), 8: ('ARTIGIANO', 0.0276), 9: ('COMMERCIANTE', 0.0248), 10: ('STUDENTE', 0.0161), 11: ('AGRICOLTORE', 0.0102), 12: ('IMPRENDITORE', 0.0083), 13: ('DISOCCUPATO', 0.0075), 14: ('DIRIGENTE', 0.0069), 15: ('ARTISTA-SPORTIVO-ASSOCIAZIONE', 0.0005), 16: ('COOPERATIVA', 0.0001)} ######
+
+
+###### 2019-01-04 16:53:15,401 [INFO] preproc.proc_data -> 
+Per la colonna ATTIVITA_NEW abbiamo escluso il 2.0% del dataset
+perché composto da valori che singolarmente non toccano un valore di 1.0%:
+IMPRENDITORE:0.01
+DISOCCUPATO:0.01
+DIRIGENTE:0.01
+ARTISTA-SPORTIVO-ASSOCIAZIONE:0.0
+COOPERATIVA:0.0
+             ######
+
+
+###### 2019-01-04 16:53:31,111 [INFO] preproc.proc_data -> Salvo i risultati in .\data\proc\possessi_reco.csv ######
+
+
+###### 2019-01-04 16:56:23,350 [INFO] luigi-interface -> [pid 21648] Worker Worker(salt=137942227, workers=1, host=IBOLAC5XSJM2000, username=LEI00020, pid=21648) done      PREPROC(dataset_id=possessi_reco, ls_keys=["CODICE_FISCALE"], sample=None) ######
+
+
+###### 2019-01-04 16:56:23,359 [INFO] luigi-interface -> Informed scheduler that task   PREPROC_possessi_reco___CODICE_FISCALE_None_32bf262ada   has status   DONE ######
+
+
+###### 2019-01-04 16:56:23,363 [INFO] luigi-interface -> [pid 21648] Worker Worker(salt=137942227, workers=1, host=IBOLAC5XSJM2000, username=LEI00020, pid=21648) running   TRAINMODEL(dataset_id=possessi_reco, model_id=xgb_stratcv) ######
+
+
+###### 2019-01-04 16:56:23,399 [INFO] model.train_xgb -> Carico i parametri ######
+
+
+###### 2019-01-04 16:56:23,487 [INFO] model.train_xgb -> Carico il dataset ######
+
+
+###### 2019-01-04 16:57:02,884 [INFO] model.train_xgb -> Distribuzione variabile target ######
+
+
+###### 2019-01-04 16:57:03,022 [INFO] model.train_xgb -> 0    8609718
+1     147976
+Name: POSSESSO_VITA_INVESTIMENTO_y, dtype: int64 ######
+
+
+###### 2019-01-04 16:57:05,380 [INFO] model.train_xgb -> PROVINCIA                 0
+Imm_Fascia                0
+MTYPE                     0
+ATTIVITA_NEW              0
+REDDITO_ME           392897
+AN_SC_000070         292341
+CN_DF_DS_000020      238510
+zone_risk1           231193
+CL_Redd              230957
+zone_risk2           230957
+AN_SC_000010         230957
+AN_CN_AT_000140      230957
+AN_000280            230957
+RISK_SB               29186
+GEODELPHI_PLUS        14728
+anzianita_cliente         0
+flagEmail                 0
+flagTelefono              0
+eta_anagrafica            0
+dtype: int64 ######
+
+
+###### 2019-01-04 16:57:39,233 [INFO] model.train_xgb -> use_hyperopt = True, Automatic parameter tuning ######
+
+
+###### 2019-01-04 16:57:39,235 [ERROR] luigi-interface -> [pid 21648] Worker Worker(salt=137942227, workers=1, host=IBOLAC5XSJM2000, username=LEI00020, pid=21648) failed    TRAINMODEL(dataset_id=possessi_reco, model_id=xgb_stratcv) ######
+Traceback (most recent call last):
+  File "C:\Users\LEI00020\AppData\Local\Continuum\anaconda3\lib\site-packages\luigi\worker.py", line 203, in run
+    new_deps = self._run_get_new_deps()
+  File "C:\Users\LEI00020\AppData\Local\Continuum\anaconda3\lib\site-packages\luigi\worker.py", line 140, in _run_get_new_deps
+    task_gen = self.task.run()
+  File "C:\Users\LEI00020\Documents\Progetti\newreco\main.py", line 80, in run
+    train_xgb.main_train(self.model_id, self.dataset_id)
+  File "C:\Users\LEI00020\Documents\Progetti\newreco\model\train_xgb.py", line 167, in main_train
+    model, data_preds, diz_results, target = train_model(model_id)
+  File "C:\Users\LEI00020\Documents\Progetti\newreco\model\train_xgb.py", line 96, in train_model
+    params_opt, min_logloss, trials_results, trials_raw = apply_hyperopt(space, n_est, X_train, y_train, X_test, y_test, max_evals=max_evals)
+UnboundLocalError: local variable 'n_est' referenced before assignment
+
+###### 2019-01-04 16:57:39,761 [INFO] luigi-interface -> Informed scheduler that task   TRAINMODEL_possessi_reco_xgb_stratcv_1c2bc48584   has status   FAILED ######
+
+
+###### 2019-01-04 16:57:39,763 [INFO] luigi-interface -> Worker Worker(salt=137942227, workers=1, host=IBOLAC5XSJM2000, username=LEI00020, pid=21648) was stopped. Shutting down Keep-Alive thread ######
+
+
+###### 2019-01-04 16:57:39,767 [INFO] luigi-interface -> 
+===== Luigi Execution Summary =====
+
+Scheduled 3 tasks of which:
+* 2 ran successfully:
+    - 1 ETL(dataset_id=possessi_reco, path_dataset=\\direzione.gr-u.it\data\Innovation\PRJ\RecommendationSystem\Recommender_Global\GS\data\dati_recosys_new.csv)
+    - 1 PREPROC(dataset_id=possessi_reco, ls_keys=["CODICE_FISCALE"], sample=None)
+* 1 failed:
+    - 1 TRAINMODEL(dataset_id=possessi_reco, model_id=xgb_stratcv)
+
+This progress looks :( because there were failed tasks
+
+===== Luigi Execution Summary =====
+ ######
+
+
+###### 2019-01-04 17:06:39,806 [INFO] __main__ -> Parte la pipeline su dataset possessi_reco e modello xgb_stratcv ######
+
+
+###### 2019-01-04 17:06:39,869 [INFO] luigi-interface -> Loaded [] ######
+
+
+###### 2019-01-04 17:06:40,303 [INFO] luigi-interface -> Informed scheduler that task   TRAINMODEL_possessi_reco_xgb_stratcv_1c2bc48584   has status   PENDING ######
+
+
+###### 2019-01-04 17:06:40,305 [INFO] luigi-interface -> Informed scheduler that task   PREPROC_possessi_reco___CODICE_FISCALE_None_32bf262ada   has status   DONE ######
+
+
+###### 2019-01-04 17:06:40,306 [INFO] luigi-interface -> Done scheduling tasks ######
+
+
+###### 2019-01-04 17:06:40,306 [INFO] luigi-interface -> Running Worker with 1 processes ######
+
+
+###### 2019-01-04 17:06:40,308 [INFO] luigi-interface -> [pid 21152] Worker Worker(salt=253463753, workers=1, host=IBOLAC5XSJM2000, username=LEI00020, pid=21152) running   TRAINMODEL(dataset_id=possessi_reco, model_id=xgb_stratcv) ######
+
+
+###### 2019-01-04 17:06:40,336 [INFO] model.train_xgb -> Carico i parametri ######
+
+
+###### 2019-01-04 17:06:40,435 [INFO] model.train_xgb -> Carico il dataset ######
+
+
+###### 2019-01-04 17:07:14,492 [INFO] model.train_xgb -> Distribuzione variabile target ######
+
+
+###### 2019-01-04 17:07:14,628 [INFO] model.train_xgb -> 0    8609718
+1     147976
+Name: POSSESSO_VITA_INVESTIMENTO_y, dtype: int64 ######
+
+
+###### 2019-01-04 17:07:16,933 [INFO] model.train_xgb -> PROVINCIA                 0
+Imm_Fascia                0
+MTYPE                     0
+ATTIVITA_NEW              0
+REDDITO_ME           392897
+AN_SC_000070         292341
+CN_DF_DS_000020      238510
+zone_risk1           231193
+CL_Redd              230957
+zone_risk2           230957
+AN_SC_000010         230957
+AN_CN_AT_000140      230957
+AN_000280            230957
+RISK_SB               29186
+GEODELPHI_PLUS        14728
+anzianita_cliente         0
+flagEmail                 0
+flagTelefono              0
+eta_anagrafica            0
+dtype: int64 ######
+
+
+###### 2019-01-04 17:07:50,718 [INFO] model.train_xgb -> use_grid = True, eseguo una CV per trovare il numero ideale di estimator ######
+
+
+###### 2019-01-04 17:10:30,072 [INFO] model.train_xgb -> Abbiamo selezionato 3 come numero di estimator ideale ######
+
+
+###### 2019-01-04 17:10:30,074 [INFO] model.train_xgb -> Griglia per learning_rate ######
+
+
+###### 2019-01-04 17:15:34,261 [ERROR] luigi-interface -> [pid 21152] Worker Worker(salt=253463753, workers=1, host=IBOLAC5XSJM2000, username=LEI00020, pid=21152) failed    TRAINMODEL(dataset_id=possessi_reco, model_id=xgb_stratcv) ######
+Traceback (most recent call last):
+  File "C:\Users\LEI00020\AppData\Local\Continuum\anaconda3\lib\site-packages\luigi\worker.py", line 203, in run
+    new_deps = self._run_get_new_deps()
+  File "C:\Users\LEI00020\AppData\Local\Continuum\anaconda3\lib\site-packages\luigi\worker.py", line 140, in _run_get_new_deps
+    task_gen = self.task.run()
+  File "C:\Users\LEI00020\Documents\Progetti\newreco\main.py", line 80, in run
+    train_xgb.main_train(self.model_id, self.dataset_id)
+  File "C:\Users\LEI00020\Documents\Progetti\newreco\model\train_xgb.py", line 167, in main_train
+    model, data_preds, diz_results, target = train_model(model_id)
+  File "C:\Users\LEI00020\Documents\Progetti\newreco\model\train_xgb.py", line 88, in train_model
+    grid_scores, grid_bestparams, grid_bestscore = grid_learn(XGBClassifier(**iperparams), X_train, y_train, n_est, iperparams['n_jobs'])
+  File "C:\Users\LEI00020\gitfolder\helpers\utils\helpers_func_xgb.py", line 50, in grid_learn
+    return sorted(gsearch.grid_scores_, key=lambda x: x[1]), gsearch.best_params_, gsearch.best_score_
+AttributeError: 'GridSearchCV' object has no attribute 'grid_scores_'
+
+###### 2019-01-04 17:15:34,824 [INFO] luigi-interface -> Informed scheduler that task   TRAINMODEL_possessi_reco_xgb_stratcv_1c2bc48584   has status   FAILED ######
+
+
+###### 2019-01-04 17:15:34,826 [INFO] luigi-interface -> Worker Worker(salt=253463753, workers=1, host=IBOLAC5XSJM2000, username=LEI00020, pid=21152) was stopped. Shutting down Keep-Alive thread ######
+
+
+###### 2019-01-04 17:15:34,831 [INFO] luigi-interface -> 
+===== Luigi Execution Summary =====
+
+Scheduled 2 tasks of which:
+* 1 present dependencies were encountered:
+    - 1 PREPROC(dataset_id=possessi_reco, ls_keys=["CODICE_FISCALE"], sample=None)
+* 1 failed:
+    - 1 TRAINMODEL(dataset_id=possessi_reco, model_id=xgb_stratcv)
+
+This progress looks :( because there were failed tasks
+
+===== Luigi Execution Summary =====
+ ######
+
+
+###### 2019-01-04 17:19:58,555 [INFO] __main__ -> Parte la pipeline su dataset possessi_reco e modello xgb_stratcv ######
+
+
+###### 2019-01-04 17:19:58,611 [INFO] luigi-interface -> Loaded [] ######
+
+
+###### 2019-01-04 17:19:59,016 [INFO] luigi-interface -> Informed scheduler that task   TRAINMODEL_possessi_reco_xgb_stratcv_1c2bc48584   has status   PENDING ######
+
+
+###### 2019-01-04 17:19:59,018 [INFO] luigi-interface -> Informed scheduler that task   PREPROC_possessi_reco___CODICE_FISCALE_None_32bf262ada   has status   DONE ######
+
+
+###### 2019-01-04 17:19:59,019 [INFO] luigi-interface -> Done scheduling tasks ######
+
+
+###### 2019-01-04 17:19:59,019 [INFO] luigi-interface -> Running Worker with 1 processes ######
+
+
+###### 2019-01-04 17:19:59,021 [INFO] luigi-interface -> [pid 20732] Worker Worker(salt=608627096, workers=1, host=IBOLAC5XSJM2000, username=LEI00020, pid=20732) running   TRAINMODEL(dataset_id=possessi_reco, model_id=xgb_stratcv) ######
+
+
+###### 2019-01-04 17:19:59,049 [INFO] model.train_xgb -> Carico i parametri ######
+
+
+###### 2019-01-04 17:19:59,139 [INFO] model.train_xgb -> Carico il dataset ######
+
+
+###### 2019-01-04 17:20:31,987 [INFO] model.train_xgb -> Distribuzione variabile target ######
+
+
+###### 2019-01-04 17:20:32,127 [INFO] model.train_xgb -> 0    8609718
+1     147976
+Name: POSSESSO_VITA_INVESTIMENTO_y, dtype: int64 ######
+
+
+###### 2019-01-04 17:20:34,341 [INFO] model.train_xgb -> PROVINCIA                 0
+Imm_Fascia                0
+MTYPE                     0
+ATTIVITA_NEW              0
+REDDITO_ME           392897
+AN_SC_000070         292341
+CN_DF_DS_000020      238510
+zone_risk1           231193
+CL_Redd              230957
+zone_risk2           230957
+AN_SC_000010         230957
+AN_CN_AT_000140      230957
+AN_000280            230957
+RISK_SB               29186
+GEODELPHI_PLUS        14728
+anzianita_cliente         0
+flagEmail                 0
+flagTelefono              0
+eta_anagrafica            0
+dtype: int64 ######
+
+
+###### 2019-01-04 17:21:07,543 [INFO] model.train_xgb -> use_grid = True, eseguo una CV per trovare il numero ideale di estimator ######
+
+
+###### 2019-01-04 17:23:53,263 [INFO] model.train_xgb -> Abbiamo selezionato 3 come numero di estimator ideale ######
+
+
+###### 2019-01-04 17:23:53,265 [INFO] model.train_xgb -> Griglia per learning_rate ######
+
+
+###### 2019-01-04 17:28:39,864 [INFO] model.train_xgb -> Abbiamo selezionato un learning rate pari a 1, con una log loss minimizzata a -0.084797147049229 ######
+
+
+###### 2019-01-04 17:28:39,866 [INFO] model.train_xgb -> ['param_learning_rate', 'params', 'rank_test_score', 'mean_fit_time', 'mean_score_time', 'mean_test_score', 'mean_train_score', 'split0_test_score', 'split1_test_score', 'split2_test_score', 'split3_test_score', 'split4_test_score', 'split0_train_score', 'split1_train_score', 'split2_train_score', 'split3_train_score', 'split4_train_score', 'std_fit_time', 'std_score_time', 'std_test_score', 'std_train_score'] ######
+
+
+###### 2019-01-04 17:28:39,868 [INFO] model.train_xgb -> use_hyperopt = True, Automatic parameter tuning ######
+
+
+###### 2019-01-04 17:28:39,896 [INFO] hyperopt.tpe -> tpe_transform took 0.004007 seconds ######
+
+
+###### 2019-01-04 17:28:39,898 [INFO] hyperopt.tpe -> TPE using 0 trials ######
+
+
+###### 2019-01-04 17:29:05,428 [INFO] hyperopt.tpe -> tpe_transform took 0.003001 seconds ######
+
+
+###### 2019-01-04 17:29:05,431 [INFO] hyperopt.tpe -> TPE using 1/1 trials with best loss 0.665801 ######
+
+
+###### 2019-01-04 17:29:33,842 [INFO] hyperopt.tpe -> tpe_transform took 0.002999 seconds ######
+
+
+###### 2019-01-04 17:29:33,845 [INFO] hyperopt.tpe -> TPE using 2/2 trials with best loss 0.665797 ######
+
+
+###### 2019-01-04 17:29:53,278 [INFO] hyperopt.tpe -> tpe_transform took 0.003005 seconds ######
+
+
+###### 2019-01-04 17:29:53,282 [INFO] hyperopt.tpe -> TPE using 3/3 trials with best loss 0.665797 ######
+
+
+###### 2019-01-04 17:30:20,183 [INFO] hyperopt.tpe -> tpe_transform took 0.002538 seconds ######
+
+
+###### 2019-01-04 17:30:20,185 [INFO] hyperopt.tpe -> TPE using 4/4 trials with best loss 0.665797 ######
+
+
+###### 2019-01-04 17:30:39,869 [INFO] hyperopt.tpe -> tpe_transform took 0.003000 seconds ######
+
+
+###### 2019-01-04 17:30:39,871 [INFO] hyperopt.tpe -> TPE using 5/5 trials with best loss 0.665797 ######
+
+
+###### 2019-01-04 17:31:00,852 [INFO] hyperopt.tpe -> tpe_transform took 0.001999 seconds ######
+
+
+###### 2019-01-04 17:31:00,855 [INFO] hyperopt.tpe -> TPE using 6/6 trials with best loss 0.665797 ######
+
+
+###### 2019-01-04 17:31:31,303 [INFO] hyperopt.tpe -> tpe_transform took 0.002499 seconds ######
+
+
+###### 2019-01-04 17:31:31,305 [INFO] hyperopt.tpe -> TPE using 7/7 trials with best loss 0.665796 ######
+
+
+###### 2019-01-04 17:31:58,471 [INFO] hyperopt.tpe -> tpe_transform took 0.001999 seconds ######
+
+
+###### 2019-01-04 17:31:58,473 [INFO] hyperopt.tpe -> TPE using 8/8 trials with best loss 0.665796 ######
+
+
+###### 2019-01-04 17:32:25,528 [INFO] hyperopt.tpe -> tpe_transform took 0.003000 seconds ######
+
+
+###### 2019-01-04 17:32:25,530 [INFO] hyperopt.tpe -> TPE using 9/9 trials with best loss 0.665796 ######
+
+
+###### 2019-01-04 17:32:52,589 [INFO] hyperopt.tpe -> tpe_transform took 0.004001 seconds ######
+
+
+###### 2019-01-04 17:32:52,591 [INFO] hyperopt.tpe -> TPE using 10/10 trials with best loss 0.665796 ######
+
+
+###### 2019-01-04 17:33:24,677 [INFO] hyperopt.tpe -> tpe_transform took 0.002996 seconds ######
+
+
+###### 2019-01-04 17:33:24,678 [INFO] hyperopt.tpe -> TPE using 11/11 trials with best loss 0.665796 ######
+
+
+###### 2019-01-04 17:33:48,950 [INFO] hyperopt.tpe -> tpe_transform took 0.002499 seconds ######
+
+
+###### 2019-01-04 17:33:48,952 [INFO] hyperopt.tpe -> TPE using 12/12 trials with best loss 0.665796 ######
+
+
+###### 2019-01-04 17:34:05,703 [INFO] luigi-interface -> Worker Worker(salt=608627096, workers=1, host=IBOLAC5XSJM2000, username=LEI00020, pid=20732) was stopped. Shutting down Keep-Alive thread ######
+
+
+###### 2019-01-04 17:34:05,716 [CRITICAL] root -> Traceback (most recent call last):
+  File "C:\Users\LEI00020\Documents\Progetti\newreco\main.py", line 87, in <module>
+    luigi.run()
+  File "C:\Users\LEI00020\AppData\Local\Continuum\anaconda3\lib\site-packages\luigi\interface.py", line 220, in run
+    return _run(*args, **kwargs)['success']
+  File "C:\Users\LEI00020\AppData\Local\Continuum\anaconda3\lib\site-packages\luigi\interface.py", line 248, in _run
+    return _schedule_and_run([cp.get_task_obj()], worker_scheduler_factory)
+  File "C:\Users\LEI00020\AppData\Local\Continuum\anaconda3\lib\site-packages\luigi\interface.py", line 207, in _schedule_and_run
+    success &= worker.run()
+  File "C:\Users\LEI00020\AppData\Local\Continuum\anaconda3\lib\site-packages\luigi\worker.py", line 1113, in run
+    self._run_task(get_work_response.task_id)
+  File "C:\Users\LEI00020\AppData\Local\Continuum\anaconda3\lib\site-packages\luigi\worker.py", line 931, in _run_task
+    task_process.run()
+  File "C:\Users\LEI00020\AppData\Local\Continuum\anaconda3\lib\site-packages\luigi\worker.py", line 203, in run
+    new_deps = self._run_get_new_deps()
+  File "C:\Users\LEI00020\AppData\Local\Continuum\anaconda3\lib\site-packages\luigi\worker.py", line 140, in _run_get_new_deps
+    task_gen = self.task.run()
+  File "C:\Users\LEI00020\Documents\Progetti\newreco\main.py", line 80, in run
+    train_xgb.main_train(self.model_id, self.dataset_id)
+  File "C:\Users\LEI00020\Documents\Progetti\newreco\model\train_xgb.py", line 167, in main_train
+    model, data_preds, diz_results, target = train_model(model_id)
+  File "C:\Users\LEI00020\Documents\Progetti\newreco\model\train_xgb.py", line 96, in train_model
+    params_opt, min_logloss, trials_results, trials_raw = apply_hyperopt(space, n_est, X_train, y_train, X_test, y_test, max_evals=max_evals)
+  File "C:\Users\LEI00020\gitfolder\helpers\utils\helpers_func_xgb.py", line 132, in apply_hyperopt
+    trials=trials
+  File "C:\Users\LEI00020\AppData\Local\Continuum\anaconda3\lib\site-packages\hyperopt\fmin.py", line 367, in fmin
+    return_argmin=return_argmin,
+  File "C:\Users\LEI00020\AppData\Local\Continuum\anaconda3\lib\site-packages\hyperopt\base.py", line 635, in fmin
+    return_argmin=return_argmin)
+  File "C:\Users\LEI00020\AppData\Local\Continuum\anaconda3\lib\site-packages\hyperopt\fmin.py", line 385, in fmin
+    rval.exhaust()
+  File "C:\Users\LEI00020\AppData\Local\Continuum\anaconda3\lib\site-packages\hyperopt\fmin.py", line 244, in exhaust
+    self.run(self.max_evals - n_done, block_until_done=self.asynchronous)
+  File "C:\Users\LEI00020\AppData\Local\Continuum\anaconda3\lib\site-packages\hyperopt\fmin.py", line 218, in run
+    self.serial_evaluate()
+  File "C:\Users\LEI00020\AppData\Local\Continuum\anaconda3\lib\site-packages\hyperopt\fmin.py", line 137, in serial_evaluate
+    result = self.domain.evaluate(spec, ctrl)
+  File "C:\Users\LEI00020\AppData\Local\Continuum\anaconda3\lib\site-packages\hyperopt\base.py", line 840, in evaluate
+    rval = self.fn(pyll_rval)
+  File "C:\Users\LEI00020\gitfolder\helpers\utils\helpers_func_xgb.py", line 109, in objective
+    eval_metric= 'logloss')
+  File "C:\Users\LEI00020\AppData\Local\Continuum\anaconda3\lib\site-packages\xgboost\sklearn.py", line 506, in fit
+    verbose_eval=verbose, xgb_model=None)
+  File "C:\Users\LEI00020\AppData\Local\Continuum\anaconda3\lib\site-packages\xgboost\training.py", line 204, in train
+    xgb_model=xgb_model, callbacks=callbacks)
+  File "C:\Users\LEI00020\AppData\Local\Continuum\anaconda3\lib\site-packages\xgboost\training.py", line 74, in _train_internal
+    bst.update(dtrain, i, obj)
+  File "C:\Users\LEI00020\AppData\Local\Continuum\anaconda3\lib\site-packages\xgboost\core.py", line 898, in update
+    dtrain.handle))
+KeyboardInterrupt
+ ######
+
+
+###### 2019-01-04 17:36:51,097 [INFO] __main__ -> Parte la pipeline su dataset possessi_reco e modello xgb_stratcv ######
+
+
+###### 2019-01-04 17:36:51,153 [INFO] luigi-interface -> Loaded [] ######
+
+
+###### 2019-01-04 17:36:51,487 [INFO] luigi-interface -> Informed scheduler that task   TRAINMODEL_possessi_reco_xgb_stratcv_1c2bc48584   has status   PENDING ######
+
+
+###### 2019-01-04 17:36:51,489 [INFO] luigi-interface -> Informed scheduler that task   PREPROC_possessi_reco___CODICE_FISCALE_None_32bf262ada   has status   DONE ######
+
+
+###### 2019-01-04 17:36:51,490 [INFO] luigi-interface -> Done scheduling tasks ######
+
+
+###### 2019-01-04 17:36:51,490 [INFO] luigi-interface -> Running Worker with 1 processes ######
+
+
+###### 2019-01-04 17:36:51,491 [INFO] luigi-interface -> [pid 10740] Worker Worker(salt=295878365, workers=1, host=IBOLAC5XSJM2000, username=LEI00020, pid=10740) running   TRAINMODEL(dataset_id=possessi_reco, model_id=xgb_stratcv) ######
+
+
+###### 2019-01-04 17:36:51,522 [INFO] model.train_xgb -> Carico i parametri ######
+
+
+###### 2019-01-04 17:36:51,606 [INFO] model.train_xgb -> Carico il dataset ######
+
+
+###### 2019-01-04 17:37:24,708 [INFO] model.train_xgb -> Distribuzione variabile target ######
+
+
+###### 2019-01-04 17:37:24,848 [INFO] model.train_xgb -> 0    8609718
+1     147976
+Name: POSSESSO_VITA_INVESTIMENTO_y, dtype: int64 ######
+
+
+###### 2019-01-04 17:37:26,977 [INFO] model.train_xgb -> PROVINCIA                 0
+Imm_Fascia                0
+MTYPE                     0
+ATTIVITA_NEW              0
+REDDITO_ME           392897
+AN_SC_000070         292341
+CN_DF_DS_000020      238510
+zone_risk1           231193
+CL_Redd              230957
+zone_risk2           230957
+AN_SC_000010         230957
+AN_CN_AT_000140      230957
+AN_000280            230957
+RISK_SB               29186
+GEODELPHI_PLUS        14728
+anzianita_cliente         0
+flagEmail                 0
+flagTelefono              0
+eta_anagrafica            0
+dtype: int64 ######
+
+
+###### 2019-01-04 17:37:59,563 [INFO] model.train_xgb -> use_grid = True, eseguo una CV per trovare il numero ideale di estimator ######
+
+
+###### 2019-01-04 22:10:47,072 [INFO] model.train_xgb -> Abbiamo selezionato 700 come numero di estimator ideale ######
+
+
+###### 2019-01-04 22:10:47,074 [INFO] model.train_xgb -> Griglia per learning_rate ######
+
+
+###### 2019-01-05 07:27:46,624 [INFO] model.train_xgb -> Abbiamo selezionato un learning rate pari a 0.1, con una log loss minimizzata a -0.07608443772148214 ######
+
+
+###### 2019-01-05 07:27:46,626 [INFO] model.train_xgb -> ['param_learning_rate', 'params', 'rank_test_score', 'mean_fit_time', 'mean_score_time', 'mean_test_score', 'mean_train_score', 'split0_test_score', 'split1_test_score', 'split2_test_score', 'split3_test_score', 'split4_test_score', 'split0_train_score', 'split1_train_score', 'split2_train_score', 'split3_train_score', 'split4_train_score', 'std_fit_time', 'std_score_time', 'std_test_score', 'std_train_score'] ######
+
+
+###### 2019-01-05 07:27:46,628 [INFO] model.train_xgb -> use_hyperopt = True, Automatic parameter tuning ######
+
+
+###### 2019-01-05 07:27:46,650 [INFO] hyperopt.tpe -> tpe_transform took 0.001981 seconds ######
+
+
+###### 2019-01-05 07:27:46,651 [INFO] hyperopt.tpe -> TPE using 0 trials ######
+
+
+###### 2019-01-05 08:21:21,858 [INFO] hyperopt.tpe -> tpe_transform took 0.002000 seconds ######
+
+
+###### 2019-01-05 08:21:21,860 [INFO] hyperopt.tpe -> TPE using 1/1 trials with best loss 0.077755 ######
+
+
+###### 2019-01-05 09:26:07,424 [INFO] hyperopt.tpe -> tpe_transform took 0.002998 seconds ######
+
+
+###### 2019-01-05 09:26:07,426 [INFO] hyperopt.tpe -> TPE using 2/2 trials with best loss 0.077352 ######
+
+
+###### 2019-01-05 10:25:00,261 [INFO] hyperopt.tpe -> tpe_transform took 0.002001 seconds ######
+
+
+###### 2019-01-05 10:25:00,263 [INFO] hyperopt.tpe -> TPE using 3/3 trials with best loss 0.077352 ######
+
+
+###### 2019-01-05 11:22:05,167 [INFO] hyperopt.tpe -> tpe_transform took 0.004030 seconds ######
+
+
+###### 2019-01-05 11:22:05,169 [INFO] hyperopt.tpe -> TPE using 4/4 trials with best loss 0.077305 ######
+
+
+###### 2019-01-05 12:04:00,327 [INFO] hyperopt.tpe -> tpe_transform took 0.003028 seconds ######
+
+
+###### 2019-01-05 12:04:00,328 [INFO] hyperopt.tpe -> TPE using 5/5 trials with best loss 0.077305 ######
+
+
+###### 2019-01-05 12:32:55,070 [INFO] hyperopt.tpe -> tpe_transform took 0.002999 seconds ######
+
+
+###### 2019-01-05 12:32:55,071 [INFO] hyperopt.tpe -> TPE using 6/6 trials with best loss 0.077305 ######
+
+
+###### 2019-01-05 13:30:43,156 [INFO] hyperopt.tpe -> tpe_transform took 0.001990 seconds ######
+
+
+###### 2019-01-05 13:30:43,159 [INFO] hyperopt.tpe -> TPE using 7/7 trials with best loss 0.077305 ######
+
+
+###### 2019-01-05 14:04:32,793 [INFO] hyperopt.tpe -> tpe_transform took 0.002001 seconds ######
+
+
+###### 2019-01-05 14:04:32,796 [INFO] hyperopt.tpe -> TPE using 8/8 trials with best loss 0.077305 ######
+
+
+###### 2019-01-05 14:50:49,310 [INFO] hyperopt.tpe -> tpe_transform took 0.002975 seconds ######
+
+
+###### 2019-01-05 14:50:49,312 [INFO] hyperopt.tpe -> TPE using 9/9 trials with best loss 0.077305 ######
+
+
+###### 2019-01-05 15:28:52,399 [INFO] hyperopt.tpe -> tpe_transform took 0.001993 seconds ######
+
+
+###### 2019-01-05 15:28:52,401 [INFO] hyperopt.tpe -> TPE using 10/10 trials with best loss 0.077305 ######
+
+
+###### 2019-01-05 16:16:53,777 [INFO] hyperopt.tpe -> tpe_transform took 0.002000 seconds ######
+
+
+###### 2019-01-05 16:16:53,779 [INFO] hyperopt.tpe -> TPE using 11/11 trials with best loss 0.077305 ######
+
+
+###### 2019-01-05 16:45:10,345 [INFO] hyperopt.tpe -> tpe_transform took 0.003007 seconds ######
+
+
+###### 2019-01-05 16:45:10,346 [INFO] hyperopt.tpe -> TPE using 12/12 trials with best loss 0.077305 ######
+
+
+###### 2019-01-05 17:49:22,931 [INFO] hyperopt.tpe -> tpe_transform took 0.002005 seconds ######
+
+
+###### 2019-01-05 17:49:22,933 [INFO] hyperopt.tpe -> TPE using 13/13 trials with best loss 0.077081 ######
+
+
+###### 2019-01-05 18:54:42,093 [INFO] hyperopt.tpe -> tpe_transform took 0.003000 seconds ######
+
+
+###### 2019-01-05 18:54:42,095 [INFO] hyperopt.tpe -> TPE using 14/14 trials with best loss 0.077053 ######
+
+
+###### 2019-01-05 20:14:03,692 [INFO] hyperopt.tpe -> tpe_transform took 0.002002 seconds ######
+
+
+###### 2019-01-05 20:14:03,694 [INFO] hyperopt.tpe -> TPE using 15/15 trials with best loss 0.076781 ######
+
+
+###### 2019-01-05 21:29:28,355 [INFO] hyperopt.tpe -> tpe_transform took 0.002008 seconds ######
+
+
+###### 2019-01-05 21:29:28,357 [INFO] hyperopt.tpe -> TPE using 16/16 trials with best loss 0.076742 ######
+
+
+###### 2019-01-05 22:43:31,026 [INFO] hyperopt.tpe -> tpe_transform took 0.003001 seconds ######
+
+
+###### 2019-01-05 22:43:31,028 [INFO] hyperopt.tpe -> TPE using 17/17 trials with best loss 0.076742 ######
+
+
+###### 2019-01-06 00:02:33,394 [INFO] hyperopt.tpe -> tpe_transform took 0.002001 seconds ######
+
+
+###### 2019-01-06 00:02:33,396 [INFO] hyperopt.tpe -> TPE using 18/18 trials with best loss 0.076742 ######
+
+
+###### 2019-01-06 01:17:19,214 [INFO] hyperopt.tpe -> tpe_transform took 0.004016 seconds ######
+
+
+###### 2019-01-06 01:17:19,216 [INFO] hyperopt.tpe -> TPE using 19/19 trials with best loss 0.076742 ######
+
+
+###### 2019-01-06 01:53:05,983 [INFO] model.train_xgb -> Fitto il modello ######
+
+
+###### 2019-01-06 01:53:05,984 [INFO] model.train_xgb -> use_stratkfold = True, Applico una cross-validation stratificata ######
+
+
+###### 2019-01-06 01:53:05,986 [ERROR] luigi-interface -> [pid 10740] Worker Worker(salt=295878365, workers=1, host=IBOLAC5XSJM2000, username=LEI00020, pid=10740) failed    TRAINMODEL(dataset_id=possessi_reco, model_id=xgb_stratcv) ######
+Traceback (most recent call last):
+  File "C:\Users\LEI00020\AppData\Local\Continuum\anaconda3\lib\site-packages\luigi\worker.py", line 203, in run
+    new_deps = self._run_get_new_deps()
+  File "C:\Users\LEI00020\AppData\Local\Continuum\anaconda3\lib\site-packages\luigi\worker.py", line 140, in _run_get_new_deps
+    task_gen = self.task.run()
+  File "C:\Users\LEI00020\Documents\Progetti\newreco\main.py", line 80, in run
+    train_xgb.main_train(self.model_id, self.dataset_id)
+  File "C:\Users\LEI00020\Documents\Progetti\newreco\model\train_xgb.py", line 167, in main_train
+    model, data_preds, diz_results, target = train_model(model_id)
+  File "C:\Users\LEI00020\Documents\Progetti\newreco\model\train_xgb.py", line 107, in train_model
+    bestmodel = modelfit(alg, train, iperparams['n_estimators'], predittori, target[0], useTrainCV=True, foldObj=skf)
+KeyError: 'n_estimators'
+
+###### 2019-01-06 01:53:06,195 [INFO] luigi-interface -> Informed scheduler that task   TRAINMODEL_possessi_reco_xgb_stratcv_1c2bc48584   has status   FAILED ######
+
+
+###### 2019-01-06 01:53:06,197 [INFO] luigi-interface -> Worker Worker(salt=295878365, workers=1, host=IBOLAC5XSJM2000, username=LEI00020, pid=10740) was stopped. Shutting down Keep-Alive thread ######
+
+
+###### 2019-01-06 01:53:06,201 [INFO] luigi-interface -> 
+===== Luigi Execution Summary =====
+
+Scheduled 2 tasks of which:
+* 1 present dependencies were encountered:
+    - 1 PREPROC(dataset_id=possessi_reco, ls_keys=["CODICE_FISCALE"], sample=None)
+* 1 failed:
+    - 1 TRAINMODEL(dataset_id=possessi_reco, model_id=xgb_stratcv)
+
+This progress looks :( because there were failed tasks
+
+===== Luigi Execution Summary =====
+ ######
+
+
+###### 2019-01-07 09:57:54,059 [INFO] __main__ -> Parte la pipeline su dataset possessi_reco e modello xgb_stratcv ######
+
+
+###### 2019-01-07 09:57:54,191 [INFO] luigi-interface -> Loaded [] ######
+
+
+###### 2019-01-07 09:57:54,669 [INFO] luigi-interface -> Informed scheduler that task   TRAINMODEL_possessi_reco_xgb_stratcv_1c2bc48584   has status   PENDING ######
+
+
+###### 2019-01-07 09:57:54,671 [INFO] luigi-interface -> Informed scheduler that task   PREPROC_possessi_reco___CODICE_FISCALE_None_32bf262ada   has status   DONE ######
+
+
+###### 2019-01-07 09:57:54,672 [INFO] luigi-interface -> Done scheduling tasks ######
+
+
+###### 2019-01-07 09:57:54,673 [INFO] luigi-interface -> Running Worker with 1 processes ######
+
+
+###### 2019-01-07 09:57:54,676 [INFO] luigi-interface -> [pid 18904] Worker Worker(salt=444705273, workers=1, host=IBOLAC5XSJM2000, username=LEI00020, pid=18904) running   TRAINMODEL(dataset_id=possessi_reco, model_id=xgb_stratcv) ######
+
+
+###### 2019-01-07 09:57:54,714 [INFO] model.train_xgb -> Carico i parametri ######
+
+
+###### 2019-01-07 09:57:54,823 [INFO] model.train_xgb -> Carico il dataset ######
+
+
+###### 2019-01-07 09:58:24,717 [INFO] model.train_xgb -> Distribuzione variabile target ######
+
+
+###### 2019-01-07 09:58:24,845 [INFO] model.train_xgb -> 0    8609718
+1     147976
+Name: POSSESSO_VITA_INVESTIMENTO_y, dtype: int64 ######
+
+
+###### 2019-01-07 09:58:27,263 [INFO] model.train_xgb -> PROVINCIA                 0
+Imm_Fascia                0
+MTYPE                     0
+ATTIVITA_NEW              0
+REDDITO_ME           392897
+AN_SC_000070         292341
+CN_DF_DS_000020      238510
+zone_risk1           231193
+CL_Redd              230957
+zone_risk2           230957
+AN_SC_000010         230957
+AN_CN_AT_000140      230957
+AN_000280            230957
+RISK_SB               29186
+GEODELPHI_PLUS        14728
+anzianita_cliente         0
+flagEmail                 0
+flagTelefono              0
+eta_anagrafica            0
+dtype: int64 ######
+
+
+###### 2019-01-07 09:58:58,726 [INFO] model.train_xgb -> use_hyperopt = True, Automatic parameter tuning ######
+
+
+###### 2019-01-07 09:58:58,728 [ERROR] luigi-interface -> [pid 18904] Worker Worker(salt=444705273, workers=1, host=IBOLAC5XSJM2000, username=LEI00020, pid=18904) failed    TRAINMODEL(dataset_id=possessi_reco, model_id=xgb_stratcv) ######
+Traceback (most recent call last):
+  File "C:\Users\LEI00020\AppData\Local\Continuum\anaconda3\lib\site-packages\luigi\worker.py", line 203, in run
+    new_deps = self._run_get_new_deps()
+  File "C:\Users\LEI00020\AppData\Local\Continuum\anaconda3\lib\site-packages\luigi\worker.py", line 140, in _run_get_new_deps
+    task_gen = self.task.run()
+  File "C:\Users\LEI00020\Documents\Progetti\newreco\main.py", line 80, in run
+    train_xgb.main_train(self.model_id, self.dataset_id)
+  File "C:\Users\LEI00020\Documents\Progetti\newreco\model\train_xgb.py", line 170, in main_train
+    model, data_preds, diz_results, target = train_model(model_id)
+  File "C:\Users\LEI00020\Documents\Progetti\newreco\model\train_xgb.py", line 96, in train_model
+    params_opt, min_logloss, trials_results, trials_raw = apply_hyperopt(space, n_est, X_train, y_train, X_test, y_test, max_evals=max_evals)
+UnboundLocalError: local variable 'n_est' referenced before assignment
+
+###### 2019-01-07 09:58:58,886 [INFO] luigi-interface -> Informed scheduler that task   TRAINMODEL_possessi_reco_xgb_stratcv_1c2bc48584   has status   FAILED ######
+
+
+###### 2019-01-07 09:58:58,888 [INFO] luigi-interface -> Worker Worker(salt=444705273, workers=1, host=IBOLAC5XSJM2000, username=LEI00020, pid=18904) was stopped. Shutting down Keep-Alive thread ######
+
+
+###### 2019-01-07 09:58:58,891 [INFO] luigi-interface -> 
+===== Luigi Execution Summary =====
+
+Scheduled 2 tasks of which:
+* 1 present dependencies were encountered:
+    - 1 PREPROC(dataset_id=possessi_reco, ls_keys=["CODICE_FISCALE"], sample=None)
+* 1 failed:
+    - 1 TRAINMODEL(dataset_id=possessi_reco, model_id=xgb_stratcv)
+
+This progress looks :( because there were failed tasks
+
+===== Luigi Execution Summary =====
+ ######
+
+
+###### 2019-01-07 10:01:32,859 [INFO] __main__ -> Parte la pipeline su dataset possessi_reco e modello xgb_stratcv ######
+
+
+###### 2019-01-07 10:01:32,919 [INFO] luigi-interface -> Loaded [] ######
+
+
+###### 2019-01-07 10:01:33,218 [INFO] luigi-interface -> Informed scheduler that task   TRAINMODEL_possessi_reco_xgb_stratcv_1c2bc48584   has status   PENDING ######
+
+
+###### 2019-01-07 10:01:33,220 [INFO] luigi-interface -> Informed scheduler that task   PREPROC_possessi_reco___CODICE_FISCALE_None_32bf262ada   has status   DONE ######
+
+
+###### 2019-01-07 10:01:33,221 [INFO] luigi-interface -> Done scheduling tasks ######
+
+
+###### 2019-01-07 10:01:33,222 [INFO] luigi-interface -> Running Worker with 1 processes ######
+
+
+###### 2019-01-07 10:01:33,223 [INFO] luigi-interface -> [pid 12672] Worker Worker(salt=590223011, workers=1, host=IBOLAC5XSJM2000, username=LEI00020, pid=12672) running   TRAINMODEL(dataset_id=possessi_reco, model_id=xgb_stratcv) ######
+
+
+###### 2019-01-07 10:01:33,255 [INFO] model.train_xgb -> Carico i parametri ######
+
+
+###### 2019-01-07 10:01:33,342 [INFO] model.train_xgb -> Carico il dataset ######
+
+
+###### 2019-01-07 10:02:05,775 [INFO] model.train_xgb -> Distribuzione variabile target ######
+
+
+###### 2019-01-07 10:02:05,904 [INFO] model.train_xgb -> 0    8609718
+1     147976
+Name: POSSESSO_VITA_INVESTIMENTO_y, dtype: int64 ######
+
+
+###### 2019-01-07 10:02:07,860 [INFO] model.train_xgb -> PROVINCIA                 0
+Imm_Fascia                0
+MTYPE                     0
+ATTIVITA_NEW              0
+REDDITO_ME           392897
+AN_SC_000070         292341
+CN_DF_DS_000020      238510
+zone_risk1           231193
+CL_Redd              230957
+zone_risk2           230957
+AN_SC_000010         230957
+AN_CN_AT_000140      230957
+AN_000280            230957
+RISK_SB               29186
+GEODELPHI_PLUS        14728
+anzianita_cliente         0
+flagEmail                 0
+flagTelefono              0
+eta_anagrafica            0
+dtype: int64 ######
+
+
+###### 2019-01-07 10:02:41,916 [INFO] model.train_xgb -> use_hyperopt = True, Automatic parameter tuning ######
+
+
+###### 2019-01-07 10:02:41,929 [INFO] hyperopt.tpe -> tpe_transform took 0.001941 seconds ######
+
+
+###### 2019-01-07 10:02:41,930 [INFO] hyperopt.tpe -> TPE using 0 trials ######
+
+
+###### 2019-01-07 10:04:20,465 [INFO] luigi-interface -> Worker Worker(salt=590223011, workers=1, host=IBOLAC5XSJM2000, username=LEI00020, pid=12672) was stopped. Shutting down Keep-Alive thread ######
+
+
+###### 2019-01-07 10:04:20,469 [CRITICAL] root -> Traceback (most recent call last):
+  File "C:\Users\LEI00020\Documents\Progetti\newreco\main.py", line 87, in <module>
+    luigi.run()
+  File "C:\Users\LEI00020\AppData\Local\Continuum\anaconda3\lib\site-packages\luigi\interface.py", line 220, in run
+    return _run(*args, **kwargs)['success']
+  File "C:\Users\LEI00020\AppData\Local\Continuum\anaconda3\lib\site-packages\luigi\interface.py", line 248, in _run
+    return _schedule_and_run([cp.get_task_obj()], worker_scheduler_factory)
+  File "C:\Users\LEI00020\AppData\Local\Continuum\anaconda3\lib\site-packages\luigi\interface.py", line 207, in _schedule_and_run
+    success &= worker.run()
+  File "C:\Users\LEI00020\AppData\Local\Continuum\anaconda3\lib\site-packages\luigi\worker.py", line 1113, in run
+    self._run_task(get_work_response.task_id)
+  File "C:\Users\LEI00020\AppData\Local\Continuum\anaconda3\lib\site-packages\luigi\worker.py", line 931, in _run_task
+    task_process.run()
+  File "C:\Users\LEI00020\AppData\Local\Continuum\anaconda3\lib\site-packages\luigi\worker.py", line 203, in run
+    new_deps = self._run_get_new_deps()
+  File "C:\Users\LEI00020\AppData\Local\Continuum\anaconda3\lib\site-packages\luigi\worker.py", line 140, in _run_get_new_deps
+    task_gen = self.task.run()
+  File "C:\Users\LEI00020\Documents\Progetti\newreco\main.py", line 80, in run
+    train_xgb.main_train(self.model_id, self.dataset_id)
+  File "C:\Users\LEI00020\Documents\Progetti\newreco\model\train_xgb.py", line 171, in main_train
+    model, data_preds, diz_results, target = train_model(model_id)
+  File "C:\Users\LEI00020\Documents\Progetti\newreco\model\train_xgb.py", line 97, in train_model
+    params_opt, min_logloss, trials_results, trials_raw = apply_hyperopt(space, n_est, X_train, y_train, X_test, y_test, max_evals=max_evals)
+  File "C:\Users\LEI00020\gitfolder\helpers\utils\helpers_func_xgb.py", line 132, in apply_hyperopt
+    trials=trials
+  File "C:\Users\LEI00020\AppData\Local\Continuum\anaconda3\lib\site-packages\hyperopt\fmin.py", line 367, in fmin
+    return_argmin=return_argmin,
+  File "C:\Users\LEI00020\AppData\Local\Continuum\anaconda3\lib\site-packages\hyperopt\base.py", line 635, in fmin
+    return_argmin=return_argmin)
+  File "C:\Users\LEI00020\AppData\Local\Continuum\anaconda3\lib\site-packages\hyperopt\fmin.py", line 385, in fmin
+    rval.exhaust()
+  File "C:\Users\LEI00020\AppData\Local\Continuum\anaconda3\lib\site-packages\hyperopt\fmin.py", line 244, in exhaust
+    self.run(self.max_evals - n_done, block_until_done=self.asynchronous)
+  File "C:\Users\LEI00020\AppData\Local\Continuum\anaconda3\lib\site-packages\hyperopt\fmin.py", line 218, in run
+    self.serial_evaluate()
+  File "C:\Users\LEI00020\AppData\Local\Continuum\anaconda3\lib\site-packages\hyperopt\fmin.py", line 137, in serial_evaluate
+    result = self.domain.evaluate(spec, ctrl)
+  File "C:\Users\LEI00020\AppData\Local\Continuum\anaconda3\lib\site-packages\hyperopt\base.py", line 840, in evaluate
+    rval = self.fn(pyll_rval)
+  File "C:\Users\LEI00020\gitfolder\helpers\utils\helpers_func_xgb.py", line 109, in objective
+    eval_metric= 'logloss')
+  File "C:\Users\LEI00020\AppData\Local\Continuum\anaconda3\lib\site-packages\xgboost\sklearn.py", line 506, in fit
+    verbose_eval=verbose, xgb_model=None)
+  File "C:\Users\LEI00020\AppData\Local\Continuum\anaconda3\lib\site-packages\xgboost\training.py", line 204, in train
+    xgb_model=xgb_model, callbacks=callbacks)
+  File "C:\Users\LEI00020\AppData\Local\Continuum\anaconda3\lib\site-packages\xgboost\training.py", line 74, in _train_internal
+    bst.update(dtrain, i, obj)
+  File "C:\Users\LEI00020\AppData\Local\Continuum\anaconda3\lib\site-packages\xgboost\core.py", line 898, in update
+    dtrain.handle))
+KeyboardInterrupt
+ ######
+
+
+###### 2019-01-07 10:04:39,660 [INFO] __main__ -> Parte la pipeline su dataset possessi_reco e modello xgb_stratcv ######
+
+
+###### 2019-01-07 10:04:39,727 [INFO] luigi-interface -> Loaded [] ######
+
+
+###### 2019-01-07 10:04:40,023 [INFO] luigi-interface -> Informed scheduler that task   TRAINMODEL_possessi_reco_xgb_stratcv_1c2bc48584   has status   PENDING ######
+
+
+###### 2019-01-07 10:04:40,025 [INFO] luigi-interface -> Informed scheduler that task   PREPROC_possessi_reco___CODICE_FISCALE_None_32bf262ada   has status   DONE ######
+
+
+###### 2019-01-07 10:04:40,026 [INFO] luigi-interface -> Done scheduling tasks ######
+
+
+###### 2019-01-07 10:04:40,026 [INFO] luigi-interface -> Running Worker with 1 processes ######
+
+
+###### 2019-01-07 10:04:40,027 [INFO] luigi-interface -> [pid 12460] Worker Worker(salt=092385357, workers=1, host=IBOLAC5XSJM2000, username=LEI00020, pid=12460) running   TRAINMODEL(dataset_id=possessi_reco, model_id=xgb_stratcv) ######
+
+
+###### 2019-01-07 10:04:40,058 [INFO] model.train_xgb -> Carico i parametri ######
+
+
+###### 2019-01-07 10:04:40,146 [INFO] model.train_xgb -> Carico il dataset ######
+
+
+###### 2019-01-07 10:05:09,694 [INFO] model.train_xgb -> Distribuzione variabile target ######
+
+
+###### 2019-01-07 10:05:09,818 [INFO] model.train_xgb -> 0    8609718
+1     147976
+Name: POSSESSO_VITA_INVESTIMENTO_y, dtype: int64 ######
+
+
+###### 2019-01-07 10:05:11,804 [INFO] model.train_xgb -> PROVINCIA                 0
+Imm_Fascia                0
+MTYPE                     0
+ATTIVITA_NEW              0
+REDDITO_ME           392897
+AN_SC_000070         292341
+CN_DF_DS_000020      238510
+zone_risk1           231193
+CL_Redd              230957
+zone_risk2           230957
+AN_SC_000010         230957
+AN_CN_AT_000140      230957
+AN_000280            230957
+RISK_SB               29186
+GEODELPHI_PLUS        14728
+anzianita_cliente         0
+flagEmail                 0
+flagTelefono              0
+eta_anagrafica            0
+dtype: int64 ######
+
+
+###### 2019-01-07 10:05:42,580 [INFO] model.train_xgb -> use_hyperopt = True, Automatic parameter tuning ######
+
+
+###### 2019-01-07 10:05:42,589 [INFO] hyperopt.tpe -> tpe_transform took 0.002005 seconds ######
+
+
+###### 2019-01-07 10:05:42,592 [INFO] hyperopt.tpe -> TPE using 0 trials ######
+
+
+###### 2019-01-07 10:06:07,061 [INFO] hyperopt.tpe -> tpe_transform took 0.002000 seconds ######
+
+
+###### 2019-01-07 10:06:07,064 [INFO] hyperopt.tpe -> TPE using 1/1 trials with best loss 0.665805 ######
+
+
+###### 2019-01-07 10:06:25,943 [INFO] hyperopt.tpe -> tpe_transform took 0.003000 seconds ######
+
+
+###### 2019-01-07 10:06:25,944 [INFO] hyperopt.tpe -> TPE using 2/2 trials with best loss 0.665805 ######
+
+
+###### 2019-01-07 10:06:47,374 [INFO] model.train_xgb -> Fitto il modello ######
+
+
+###### 2019-01-07 10:06:47,375 [INFO] model.train_xgb -> use_stratkfold = True, Applico una cross-validation stratificata ######
+
+
+###### 2019-01-07 10:06:47,375 [ERROR] luigi-interface -> [pid 12460] Worker Worker(salt=092385357, workers=1, host=IBOLAC5XSJM2000, username=LEI00020, pid=12460) failed    TRAINMODEL(dataset_id=possessi_reco, model_id=xgb_stratcv) ######
+Traceback (most recent call last):
+  File "C:\Users\LEI00020\AppData\Local\Continuum\anaconda3\lib\site-packages\luigi\worker.py", line 203, in run
+    new_deps = self._run_get_new_deps()
+  File "C:\Users\LEI00020\AppData\Local\Continuum\anaconda3\lib\site-packages\luigi\worker.py", line 140, in _run_get_new_deps
+    task_gen = self.task.run()
+  File "C:\Users\LEI00020\Documents\Progetti\newreco\main.py", line 80, in run
+    train_xgb.main_train(self.model_id, self.dataset_id)
+  File "C:\Users\LEI00020\Documents\Progetti\newreco\model\train_xgb.py", line 171, in main_train
+    model, data_preds, diz_results, target = train_model(model_id)
+  File "C:\Users\LEI00020\Documents\Progetti\newreco\model\train_xgb.py", line 111, in train_model
+    bestmodel = modelfit(alg, train, iperparams['n_estimators'], predittori, target[0], useTrainCV=True, foldObj=skf)
+KeyError: 'n_estimators'
+
+###### 2019-01-07 10:06:47,580 [INFO] luigi-interface -> Informed scheduler that task   TRAINMODEL_possessi_reco_xgb_stratcv_1c2bc48584   has status   FAILED ######
+
+
+###### 2019-01-07 10:06:47,583 [INFO] luigi-interface -> Worker Worker(salt=092385357, workers=1, host=IBOLAC5XSJM2000, username=LEI00020, pid=12460) was stopped. Shutting down Keep-Alive thread ######
+
+
+###### 2019-01-07 10:06:47,585 [INFO] luigi-interface -> 
+===== Luigi Execution Summary =====
+
+Scheduled 2 tasks of which:
+* 1 present dependencies were encountered:
+    - 1 PREPROC(dataset_id=possessi_reco, ls_keys=["CODICE_FISCALE"], sample=None)
+* 1 failed:
+    - 1 TRAINMODEL(dataset_id=possessi_reco, model_id=xgb_stratcv)
+
+This progress looks :( because there were failed tasks
+
+===== Luigi Execution Summary =====
+ ######
+
+
+###### 2019-01-07 10:08:47,118 [INFO] __main__ -> Parte la pipeline su dataset possessi_reco e modello xgb_stratcv ######
+
+
+###### 2019-01-07 10:08:47,169 [INFO] luigi-interface -> Loaded [] ######
+
+
+###### 2019-01-07 10:08:47,477 [INFO] luigi-interface -> Informed scheduler that task   TRAINMODEL_possessi_reco_xgb_stratcv_1c2bc48584   has status   PENDING ######
+
+
+###### 2019-01-07 10:08:47,479 [INFO] luigi-interface -> Informed scheduler that task   PREPROC_possessi_reco___CODICE_FISCALE_None_32bf262ada   has status   DONE ######
+
+
+###### 2019-01-07 10:08:47,479 [INFO] luigi-interface -> Done scheduling tasks ######
+
+
+###### 2019-01-07 10:08:47,480 [INFO] luigi-interface -> Running Worker with 1 processes ######
+
+
+###### 2019-01-07 10:08:47,481 [INFO] luigi-interface -> [pid 3100] Worker Worker(salt=133775008, workers=1, host=IBOLAC5XSJM2000, username=LEI00020, pid=3100) running   TRAINMODEL(dataset_id=possessi_reco, model_id=xgb_stratcv) ######
+
+
+###### 2019-01-07 10:08:47,508 [INFO] model.train_xgb -> Carico i parametri ######
+
+
+###### 2019-01-07 10:08:47,593 [INFO] model.train_xgb -> Carico il dataset ######
+
+
+###### 2019-01-07 10:09:18,798 [INFO] model.train_xgb -> Distribuzione variabile target ######
+
+
+###### 2019-01-07 10:09:18,923 [INFO] model.train_xgb -> 0    8609718
+1     147976
+Name: POSSESSO_VITA_INVESTIMENTO_y, dtype: int64 ######
+
+
+###### 2019-01-07 10:09:21,091 [INFO] model.train_xgb -> PROVINCIA                 0
+Imm_Fascia                0
+MTYPE                     0
+ATTIVITA_NEW              0
+REDDITO_ME           392897
+AN_SC_000070         292341
+CN_DF_DS_000020      238510
+zone_risk1           231193
+CL_Redd              230957
+zone_risk2           230957
+AN_SC_000010         230957
+AN_CN_AT_000140      230957
+AN_000280            230957
+RISK_SB               29186
+GEODELPHI_PLUS        14728
+anzianita_cliente         0
+flagEmail                 0
+flagTelefono              0
+eta_anagrafica            0
+dtype: int64 ######
+
+
+###### 2019-01-07 10:09:53,030 [INFO] model.train_xgb -> use_hyperopt = True, Automatic parameter tuning ######
+
+
+###### 2019-01-07 10:09:53,039 [INFO] hyperopt.tpe -> tpe_transform took 0.002006 seconds ######
+
+
+###### 2019-01-07 10:09:53,041 [INFO] hyperopt.tpe -> TPE using 0 trials ######
+
+
+###### 2019-01-07 10:10:14,695 [INFO] hyperopt.tpe -> tpe_transform took 0.002999 seconds ######
+
+
+###### 2019-01-07 10:10:14,697 [INFO] hyperopt.tpe -> TPE using 1/1 trials with best loss 0.665805 ######
+
+
+###### 2019-01-07 10:10:32,980 [INFO] hyperopt.tpe -> tpe_transform took 0.002998 seconds ######
+
+
+###### 2019-01-07 10:10:32,981 [INFO] hyperopt.tpe -> TPE using 2/2 trials with best loss 0.665805 ######
+
+
+###### 2019-01-07 10:10:53,593 [INFO] model.train_xgb -> Fitto il modello ######
+
+
+###### 2019-01-07 10:10:53,596 [INFO] model.train_xgb -> use_stratkfold = True, Applico una cross-validation stratificata ######
+
+
+###### 2019-01-07 10:12:32,647 [INFO] model.train_xgb -> Calibro il modello ######
+
+
+###### 2019-01-07 10:12:33,552 [WARNING] py.warnings -> C:\Users\LEI00020\Documents\Progetti\newreco\model\train_xgb.py:117: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/indexing.html#indexing-view-versus-copy
+
+ ######
+
+
+###### 2019-01-07 10:12:33,608 [WARNING] py.warnings -> C:\Users\LEI00020\Documents\Progetti\newreco\model\train_xgb.py:118: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/indexing.html#indexing-view-versus-copy
+
+ ######
+
+
+###### 2019-01-07 10:12:34,713 [INFO] model.train_xgb -> Salvo i risultati e i plot ######
+
+
+###### 2019-01-07 10:13:11,807 [WARNING] py.warnings -> C:\Users\LEI00020\gitfolder\helpers\viz\graph_func.py:92: RuntimeWarning:
+
+invalid value encountered in longlong_scalars
+
+ ######
+
+
+###### 2019-01-07 10:14:02,466 [INFO] luigi-interface -> [pid 3100] Worker Worker(salt=133775008, workers=1, host=IBOLAC5XSJM2000, username=LEI00020, pid=3100) done      TRAINMODEL(dataset_id=possessi_reco, model_id=xgb_stratcv) ######
+
+
+###### 2019-01-07 10:14:02,470 [INFO] luigi-interface -> Informed scheduler that task   TRAINMODEL_possessi_reco_xgb_stratcv_1c2bc48584   has status   DONE ######
+
+
+###### 2019-01-07 10:14:02,471 [INFO] luigi-interface -> Worker Worker(salt=133775008, workers=1, host=IBOLAC5XSJM2000, username=LEI00020, pid=3100) was stopped. Shutting down Keep-Alive thread ######
+
+
+###### 2019-01-07 10:14:02,474 [INFO] luigi-interface -> 
+===== Luigi Execution Summary =====
+
+Scheduled 2 tasks of which:
+* 1 present dependencies were encountered:
+    - 1 PREPROC(dataset_id=possessi_reco, ls_keys=["CODICE_FISCALE"], sample=None)
+* 1 ran successfully:
+    - 1 TRAINMODEL(dataset_id=possessi_reco, model_id=xgb_stratcv)
+
+This progress looks :) because there were no failed tasks or missing external dependencies
+
+===== Luigi Execution Summary =====
+ ######
+
+
+###### 2019-01-07 10:22:41,266 [INFO] __main__ -> Parte la pipeline su dataset possessi_reco e modello xgb_stratcv ######
+
+
+###### 2019-01-07 10:22:41,324 [INFO] luigi-interface -> Loaded [] ######
+
+
+###### 2019-01-07 10:22:41,665 [INFO] luigi-interface -> Informed scheduler that task   TRAINMODEL_possessi_reco_xgb_stratcv_1c2bc48584   has status   DONE ######
+
+
+###### 2019-01-07 10:22:41,667 [INFO] luigi-interface -> Done scheduling tasks ######
+
+
+###### 2019-01-07 10:22:41,668 [INFO] luigi-interface -> Running Worker with 1 processes ######
+
+
+###### 2019-01-07 10:22:41,669 [INFO] luigi-interface -> Worker Worker(salt=871091322, workers=1, host=IBOLAC5XSJM2000, username=LEI00020, pid=13808) was stopped. Shutting down Keep-Alive thread ######
+
+
+###### 2019-01-07 10:22:41,671 [INFO] luigi-interface -> 
+===== Luigi Execution Summary =====
+
+Scheduled 1 tasks of which:
+* 1 present dependencies were encountered:
+    - 1 TRAINMODEL(dataset_id=possessi_reco, model_id=xgb_stratcv)
+
+Did not run any tasks
+This progress looks :) because there were no failed tasks or missing external dependencies
+
+===== Luigi Execution Summary =====
+ ######
+
+
+###### 2019-01-07 10:23:12,341 [INFO] __main__ -> Parte la pipeline su dataset possessi_reco e modello xgb_stratcv ######
+
+
+###### 2019-01-07 10:23:12,439 [INFO] luigi-interface -> Loaded [] ######
+
+
+###### 2019-01-07 10:23:12,813 [INFO] luigi-interface -> Informed scheduler that task   TRAINMODEL_possessi_reco_xgb_stratcv_1c2bc48584   has status   PENDING ######
+
+
+###### 2019-01-07 10:23:12,816 [INFO] luigi-interface -> Informed scheduler that task   PREPROC_possessi_reco___CODICE_FISCALE_None_32bf262ada   has status   DONE ######
+
+
+###### 2019-01-07 10:23:12,818 [INFO] luigi-interface -> Done scheduling tasks ######
+
+
+###### 2019-01-07 10:23:12,819 [INFO] luigi-interface -> Running Worker with 1 processes ######
+
+
+###### 2019-01-07 10:23:12,820 [INFO] luigi-interface -> [pid 12516] Worker Worker(salt=504930264, workers=1, host=IBOLAC5XSJM2000, username=LEI00020, pid=12516) running   TRAINMODEL(dataset_id=possessi_reco, model_id=xgb_stratcv) ######
+
+
+###### 2019-01-07 10:23:12,875 [INFO] model.train_xgb -> Carico i parametri ######
+
+
+###### 2019-01-07 10:23:13,027 [INFO] model.train_xgb -> Carico il dataset ######
+
+
+###### 2019-01-07 10:23:44,404 [INFO] model.train_xgb -> Distribuzione variabile target ######
+
+
+###### 2019-01-07 10:23:44,530 [INFO] model.train_xgb -> 0    8609718
+1     147976
+Name: POSSESSO_VITA_INVESTIMENTO_y, dtype: int64 ######
+
+
+###### 2019-01-07 10:23:46,545 [INFO] model.train_xgb -> PROVINCIA                 0
+Imm_Fascia                0
+MTYPE                     0
+ATTIVITA_NEW              0
+REDDITO_ME           392897
+AN_SC_000070         292341
+CN_DF_DS_000020      238510
+zone_risk1           231193
+CL_Redd              230957
+zone_risk2           230957
+AN_SC_000010         230957
+AN_CN_AT_000140      230957
+AN_000280            230957
+RISK_SB               29186
+GEODELPHI_PLUS        14728
+anzianita_cliente         0
+flagEmail                 0
+flagTelefono              0
+eta_anagrafica            0
+dtype: int64 ######
+
+
+###### 2019-01-07 10:24:16,926 [INFO] model.train_xgb -> use_hyperopt = True, Automatic parameter tuning ######
+
+
+###### 2019-01-07 10:24:16,935 [INFO] hyperopt.tpe -> tpe_transform took 0.002001 seconds ######
+
+
+###### 2019-01-07 10:24:16,937 [INFO] hyperopt.tpe -> TPE using 0 trials ######
+
+
+###### 2019-01-07 10:24:38,422 [INFO] hyperopt.tpe -> tpe_transform took 0.002000 seconds ######
+
+
+###### 2019-01-07 10:24:38,424 [INFO] hyperopt.tpe -> TPE using 1/1 trials with best loss 0.665814 ######
+
+
+###### 2019-01-07 10:25:02,903 [INFO] hyperopt.tpe -> tpe_transform took 0.005997 seconds ######
+
+
+###### 2019-01-07 10:25:02,907 [INFO] hyperopt.tpe -> TPE using 2/2 trials with best loss 0.665802 ######
+
+
+###### 2019-01-07 10:25:26,498 [INFO] model.train_xgb -> Fitto il modello ######
+
+
+###### 2019-01-07 10:25:26,499 [INFO] model.train_xgb -> use_stratkfold = True, Applico una cross-validation stratificata ######
+
+
+###### 2019-01-07 10:27:06,059 [INFO] model.train_xgb -> Calibro il modello ######
+
+
+###### 2019-01-07 10:27:06,884 [WARNING] py.warnings -> C:\Users\LEI00020\Documents\Progetti\newreco\model\train_xgb.py:117: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/indexing.html#indexing-view-versus-copy
+
+ ######
+
+
+###### 2019-01-07 10:27:07,899 [INFO] model.train_xgb -> Salvo i risultati e i plot ######
+
+
+###### 2019-01-07 10:27:39,035 [ERROR] luigi-interface -> [pid 12516] Worker Worker(salt=504930264, workers=1, host=IBOLAC5XSJM2000, username=LEI00020, pid=12516) failed    TRAINMODEL(dataset_id=possessi_reco, model_id=xgb_stratcv) ######
+Traceback (most recent call last):
+  File "C:\Users\LEI00020\AppData\Local\Continuum\anaconda3\lib\site-packages\pandas\core\indexes\base.py", line 2522, in get_loc
+    return self._engine.get_loc(key)
+  File "pandas\_libs\index.pyx", line 117, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\index.pyx", line 139, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\hashtable_class_helper.pxi", line 1265, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\_libs\hashtable_class_helper.pxi", line 1273, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'POSSESSO_VITA_INVESTIMENTO_y'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\LEI00020\AppData\Local\Continuum\anaconda3\lib\site-packages\luigi\worker.py", line 203, in run
+    new_deps = self._run_get_new_deps()
+  File "C:\Users\LEI00020\AppData\Local\Continuum\anaconda3\lib\site-packages\luigi\worker.py", line 140, in _run_get_new_deps
+    task_gen = self.task.run()
+  File "C:\Users\LEI00020\Documents\Progetti\newreco\main.py", line 80, in run
+    train_xgb.main_train(self.model_id, self.dataset_id)
+  File "C:\Users\LEI00020\Documents\Progetti\newreco\model\train_xgb.py", line 172, in main_train
+    save_results(model_id, dataset_id, model, data_preds, diz_results, target)
+  File "C:\Users\LEI00020\Documents\Progetti\newreco\model\train_xgb.py", line 140, in save_results
+    save=False
+  File "C:\Users\LEI00020\gitfolder\helpers\viz\graph_func.py", line 117, in roc_curve_annotated
+    ytrue, yprob = df[nometrue], df[nomeprob]
+  File "C:\Users\LEI00020\AppData\Local\Continuum\anaconda3\lib\site-packages\pandas\core\frame.py", line 2139, in __getitem__
+    return self._getitem_column(key)
+  File "C:\Users\LEI00020\AppData\Local\Continuum\anaconda3\lib\site-packages\pandas\core\frame.py", line 2146, in _getitem_column
+    return self._get_item_cache(key)
+  File "C:\Users\LEI00020\AppData\Local\Continuum\anaconda3\lib\site-packages\pandas\core\generic.py", line 1842, in _get_item_cache
+    values = self._data.get(item)
+  File "C:\Users\LEI00020\AppData\Local\Continuum\anaconda3\lib\site-packages\pandas\core\internals.py", line 3838, in get
+    loc = self.items.get_loc(item)
+  File "C:\Users\LEI00020\AppData\Local\Continuum\anaconda3\lib\site-packages\pandas\core\indexes\base.py", line 2524, in get_loc
+    return self._engine.get_loc(self._maybe_cast_indexer(key))
+  File "pandas\_libs\index.pyx", line 117, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\index.pyx", line 139, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\hashtable_class_helper.pxi", line 1265, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\_libs\hashtable_class_helper.pxi", line 1273, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'POSSESSO_VITA_INVESTIMENTO_y'
+
+###### 2019-01-07 10:27:39,285 [INFO] luigi-interface -> Informed scheduler that task   TRAINMODEL_possessi_reco_xgb_stratcv_1c2bc48584   has status   FAILED ######
+
+
+###### 2019-01-07 10:27:39,287 [INFO] luigi-interface -> Worker Worker(salt=504930264, workers=1, host=IBOLAC5XSJM2000, username=LEI00020, pid=12516) was stopped. Shutting down Keep-Alive thread ######
+
+
+###### 2019-01-07 10:27:39,289 [INFO] luigi-interface -> 
+===== Luigi Execution Summary =====
+
+Scheduled 2 tasks of which:
+* 1 present dependencies were encountered:
+    - 1 PREPROC(dataset_id=possessi_reco, ls_keys=["CODICE_FISCALE"], sample=None)
+* 1 failed:
+    - 1 TRAINMODEL(dataset_id=possessi_reco, model_id=xgb_stratcv)
+
+This progress looks :( because there were failed tasks
+
+===== Luigi Execution Summary =====
+ ######
+
+
+###### 2019-01-07 10:33:42,681 [INFO] __main__ -> Parte la pipeline su dataset possessi_reco e modello xgb_stratcv ######
+
+
+###### 2019-01-07 10:33:42,737 [INFO] luigi-interface -> Loaded [] ######
+
+
+###### 2019-01-07 10:33:43,029 [INFO] luigi-interface -> Informed scheduler that task   TRAINMODEL_possessi_reco_xgb_stratcv_1c2bc48584   has status   DONE ######
+
+
+###### 2019-01-07 10:33:43,031 [INFO] luigi-interface -> Done scheduling tasks ######
+
+
+###### 2019-01-07 10:33:43,032 [INFO] luigi-interface -> Running Worker with 1 processes ######
+
+
+###### 2019-01-07 10:33:43,033 [INFO] luigi-interface -> Worker Worker(salt=457797599, workers=1, host=IBOLAC5XSJM2000, username=LEI00020, pid=10028) was stopped. Shutting down Keep-Alive thread ######
+
+
+###### 2019-01-07 10:33:43,035 [INFO] luigi-interface -> 
+===== Luigi Execution Summary =====
+
+Scheduled 1 tasks of which:
+* 1 present dependencies were encountered:
+    - 1 TRAINMODEL(dataset_id=possessi_reco, model_id=xgb_stratcv)
+
+Did not run any tasks
+This progress looks :) because there were no failed tasks or missing external dependencies
+
+===== Luigi Execution Summary =====
+ ######
+

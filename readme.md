@@ -31,3 +31,5 @@ Hai appena pullato. Setta il rootDir nel config/cfg.yaml
     * Settare i parametri di testing in model/set_model.py e lanciarlo (settare nuovo model_id)
 
 Tutto questo può essere lanciato tramite main_skeleton.py, che presenta una struttura di pipeline Luigi già pronta, dove inserire model_id, dataset_id e implementare le logiche prescelte.
+Ricordarsi di impostare dataset_id, model_id (eventualmente un n sample) e lanciare
+> python $filepath $NomeTask --local-scheduler

@@ -10,11 +10,11 @@ def set_model_params(dataset_id, model_id):
 
     params = {
         'test_size':0.2,
-        'n_est_max':700,
-        'max_evals':20,
+        'n_est_max':3,
+        'max_evals':3,
         'n_jobs':3,
-        'use_hyperopt':True,
         'use_grid':False,
+        'use_hyperopt':True,
         'use_stratkfold':True,
         'strat_perc':0.3,
         'iperparams': {
@@ -22,12 +22,12 @@ def set_model_params(dataset_id, model_id):
             'subsample':0.6975732844651784,
             'gamma':1.1060552077820258,
             'eval_metric':['auc', 'logloss'],
-            'learning_rate':0.1,
+            'learning_rate':0.1,  # 0.1
             'max_depth':7,
             'min_child_weight':8,
             'reg_alpha':0.560674658894005,
             'reg_lambda':0.04109383840952241,
-            'n_estimators':3,
+            'n_estimators':3,  # 700
             'n_jobs':3,
             'objective':'binary:logistic'
         },
