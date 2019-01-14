@@ -7,3 +7,5 @@ config/model/*
 data/*
 main.py
 testing/*
+notebook/*
+logs/

@@ -46,7 +46,7 @@ def train_model(model_id):
     cats = feat_info['FEATURE_CATEGORICHE']
     cont = feat_info['FEATURE_CONTINUE']
     predittori = cats + cont
-    target = feat_info['TARGET']
+    target = params['target']
     chiavi = feat_info['KEYS']
 
     testsize = params['test_size']
@@ -68,7 +68,7 @@ def train_model(model_id):
 
     ### MODELLO
     X,y = dataset[predittori], dataset[target[0]]
-    logger.info('Distribuzione variabile target')
+    logger.info('Distribuzione variabile target {}'.format(target))
     logger.info(y.value_counts())
 
     logger.info(X.isnull().sum())

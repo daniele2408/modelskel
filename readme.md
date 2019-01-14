@@ -28,8 +28,11 @@ Hai appena pullato. Setta il rootDir nel config/cfg.yaml
     * Lanciare preproc/report_data per avere un'idea del dataset
     * Lanciare preproc/proc_data decidendo come lavorare i dati e SE lavorarli
 * TRAIN MODEL
-    * Settare i parametri di testing in model/set_model.py e lanciarlo (settare nuovo model_id)
+    * Settare i parametri di testing in model/set_model.py (MI RACCOMANDO IL TARGET) e lanciarlo (settare nuovo model_id)
 
 Tutto questo può essere lanciato tramite main_skeleton.py, che presenta una struttura di pipeline Luigi già pronta, dove inserire model_id, dataset_id e implementare le logiche prescelte.
 Ricordarsi di impostare dataset_id, model_id (eventualmente un n sample) e lanciare
 > python $filepath $NomeTask --local-scheduler
+
+## TO DO
+Voglio poter scegliere il target di un dataset senza dover ogni volta generarmi un dataset diverso se l'unica cosa a cambiare è il target

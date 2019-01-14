@@ -9,6 +9,7 @@ os.chdir(os.path.join(dir_path, '..'))
 def set_model_params(dataset_id, model_id):
 
     params = {
+        'target':'',
         'test_size':0.2,
         'n_est_max':700,
         'max_evals':20,  # per hyperopt
@@ -18,15 +19,15 @@ def set_model_params(dataset_id, model_id):
         'use_stratkfold':True,
         'strat_perc':0.3,
         'iperparams': {
-            'colsample_bytree':0.5868323733872024,
-            'subsample':0.6975732844651784,
-            'gamma':1.1060552077820258,
+            'colsample_bytree':0.7904172784890469,
+            'subsample':0.7593440381275615,
+            'gamma':8.705364606318168,
             'eval_metric':['auc', 'logloss'],
             'learning_rate':0.1,  # 0.1
             'max_depth':7,
-            'min_child_weight':8,
-            'reg_alpha':0.560674658894005,
-            'reg_lambda':0.04109383840952241,
+            'min_child_weight':6,
+            'reg_alpha':0.32412538307163585,
+            'reg_lambda':0.4343403342030415,
             'n_estimators':700,  # 700
             'n_jobs':3,
             'objective':'binary:logistic'
