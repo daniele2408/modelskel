@@ -96,7 +96,33 @@ class TRAINMODEL(luigi.Task):
     def output(self):
         return luigi.LocalTarget(os.path.join('.', 'data', 'resources', 'models', '{}_{}.model'.format(self.dataset_id, self.model_id)))
 
-        
+class RETRIEVEDATA(luigi.Task):
+    dataset_id = luigi.Parameter(default=datasetID)
+    model_id = luigi.Parameter(default=modelID)
+
+    def requires(self):
+        return [TRAINMODEL(), PREPROC()]
+
+    def run(self):
+        pass
+
+    def output(self):
+        return luigi.LocalTarget(os.path.join('.', 'data', 'resources', 'models', '{}_{}.model'.format(self.dataset_id, self.model_id)))
+
+
+class PREDICTDATA(luigi.Task):
+    dataset_id = luigi.Parameter(default=datasetID)
+    model_id = luigi.Parameter(default=modelID)
+
+    def requires(self):
+        return [RETRIEVEDATA(), PREPROC()]
+
+    def run(self):
+        pass
+
+    def output(self):
+        return luigi.LocalTarget(os.path.join('.', 'data', 'resources', 'models', '{}_{}.model'.format(self.dataset_id, self.model_id)))
+
 
 if __name__ == '__main__':
     print('Processiamo il dataset {} con modello {}'.format(datasetID, modelID))
